@@ -4,6 +4,7 @@
 [English](../../en/src/README.md)
 
 
+- VSC 1.0 [source code](../../src/1_0/vsc.py)
 - [Opis zestawu instrukcji](instruction_set.md)
 - Przykładowa [sesja z VSC](examples/session_tutorial_05_01.md) przeprowadzona na pliku [`tutorial_05_01.mc`](examples/tutorial_05_01.mc).
 - [`tutorial_05_03_solution_3_1.mc`](examples/tutorial_05_03_solution_3_1.mc)
