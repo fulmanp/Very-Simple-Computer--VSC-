@@ -1,0 +1,105 @@
+MacBook-Piotr:src fulmanp$ python3 vsc.py
+
+Welcome to VSCA (Very Simple Computer Assembler)
+Version 1.0
+Build 202311192355
+Type -h and confirm with ENTER for help.
+
+> -load tutorial_06_05_solution_1.mc
+Program loaded from: tutorial_06_05_solution_1.mc
+> -startAddr 30
+Starting at address: 30
+> -run -step
+Executing one instruction
+Registers:
+IR = 94120
+BP = 9999
+SP = 9999
+ A = None
+IP = 30
+Flags:
+zero     = False
+negative = False
+
+Description: Copy value from memory at address given in memory at address aa to accumulator, A := M[M[aa]].
+Mnemonic: CPA [aa]
+Machine code: 941aa
+Addressing: indirect, one byte length
+Value: 00007
+Value in accumulator as bits: 00007
+Value in accumulator as int: +0007
+> 
+Executing one instruction
+Registers:
+IR = 94321
+BP = 9999
+SP = 9999
+ A = 00007
+IP = 31
+Flags:
+zero     = False
+negative = False
+
+Description: Add value from memory at address given in memory at address aa to accumulator, A := A + M[M[aa]].
+Mnemonic: ADD [aa]
+Machine code: 943aa
+Addressing: indirect, one byte length
+Value as bits: 00004
+Value as int: +0004
+Value in accumulator as bits: 00011
+Value in accumulator as int: +0011
+> 
+Executing one instruction
+Registers:
+IR = 94322
+BP = 9999
+SP = 9999
+ A = 00011
+IP = 32
+Flags:
+zero     = False
+negative = False
+
+Description: Add value from memory at address given in memory at address aa to accumulator, A := A + M[M[aa]].
+Mnemonic: ADD [aa]
+Machine code: 943aa
+Addressing: indirect, one byte length
+Value as bits: 00001
+Value as int: +0001
+Value in accumulator as bits: 00012
+Value in accumulator as int: +0012
+> 
+Executing one instruction
+Registers:
+IR = 20026
+BP = 9999
+SP = 9999
+ A = 00012
+IP = 33
+Flags:
+zero     = False
+negative = False
+
+Description: Copy value from accumulator to memory at address aaaa, M[aaaa] := A.
+Mnemonic: STO aaaa
+Machine code: 2aaaa
+Addressing: direct
+Store at address 0026 value: 00012
+> 
+Executing one instruction
+Registers:
+IR = 00000
+BP = 9999
+SP = 9999
+ A = 00012
+IP = 34
+Flags:
+zero     = False
+negative = False
+
+Description: Stop the cpu.
+Mnemonic: HLT
+Machine code: 00000
+> -show -memory 26
+M[0026] = 00012
+> 

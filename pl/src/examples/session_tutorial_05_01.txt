@@ -1,0 +1,115 @@
+MacBook-Piotr:src fulmanp$ python3 vsc.py 
+
+Welcome to VSCA (Very Simple Computer Assembler)
+Version 1.0
+Build 202311110840
+Type -h and confirm with ENTER for help.
+
+> -load tutorial_05_01.mc
+Loading program from: tutorial_05_01.mc
+> -startAddr 20
+Starting at address: 20
+> -show -memory 10-12
+M[0010] = 00005
+M[0011] = 10008
+M[0012] = 03728
+> -run -step
+Executing one instruction
+Registers:
+IP = 20
+IR = 10010
+A = None
+
+Description: Copy value from memory at address aaaa to accumulator, A := M[aaaa].
+Mnemonic: CPA aaaa
+Machine code: 1aaaa
+Addressing: direct
+Value at address 0010: 00005
+Value in accumulator as bits: 00005
+Value in accumulator as int: +0005
+> 
+Executing one instruction
+Registers:
+IP = 21
+IR = 40011
+A = 00005
+
+Description: Subtract value at specified address aaaa from accumulator. Result is stored in accumulator A := A - M[aaaa].
+Mnemonic: SUB aaaa
+Machine code: 4aaaa
+Addressing: direct
+Address: 0011
+Value at address 0011 as bits: 10008
+Value at address 0011 as int: -0008
+Value in accumulator as bits: 00013
+Value in accumulator as int: +0013
+> 
+Executing one instruction
+Registers:
+IP = 22
+IR = 70025
+A = 00013
+
+Description: Conditional branch to instruction located at address aaaa if value stored in accumulator is negative.
+Mnemonic: BRN aaaa
+Machine code: 7aaaa
+Addressing: direct
+Address: 0025
+Value in accumulator: 00013
+Value in accumulator is positive
+> 
+Executing one instruction
+Registers:
+IP = 23
+IR = 10011
+A = 00013
+
+Description: Copy value from memory at address aaaa to accumulator, A := M[aaaa].
+Mnemonic: CPA aaaa
+Machine code: 1aaaa
+Addressing: direct
+Value at address 0011: 10008
+Value in accumulator as bits: 10008
+Value in accumulator as int: -0008
+> 
+Executing one instruction
+Registers:
+IP = 24
+IR = 60026
+A = 10008
+
+Description: Unconditional branch to instruction located at address aaaa.
+Mnemonic: BRA aaaa
+Machine code: 6aaaa
+Addressing: direct
+Address: 0026
+> 
+Executing one instruction
+Registers:
+IP = 26
+IR = 20012
+A = 10008
+
+Description: Copy value from accumulator to memory at address aaaa, M[aaaa] := A.
+Mnemonic: STO aaaa
+Machine code: 2aaaa
+Addressing: direct
+Store at address 0012 value: 10008
+> 
+Executing one instruction
+Registers:
+IP = 27
+IR = 00000
+A = 10008
+
+Description: Stop the cpu.
+Mnemonic: HLT
+Machine code: 00000
+> 
+Executing one instruction
+Program execution halted. Please do reset
+> -show -memory 10-12
+M[0010] = 00005
+M[0011] = 10008
+M[0012] = 10008
+> -exit 

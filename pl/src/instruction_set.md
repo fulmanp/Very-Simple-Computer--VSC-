@@ -1,64 +1,93 @@
 ```            
-aa, aaaa, aaaaa - an address, unsigned integer in range:
-aa   : from 00    to 99
-aaaa : from 0000  to 9999
-aaaaa: from 00000 to 99999
+aa, aaaa, aaaaa - adress, liczba całkowita bez znaku z zakresu:
+aa   : od 00    do 99
+aaaa : od 0000  do 9999
+aaaaa: od 00000 do 99999
 
-ss, ssss, sssss - value, signed integer in range:
-ss   : from 19 (-9)       to 09 (+9)
-ssss : from 1999  (-999)  to 0999 (+999)
-sssss: from 19999 (-9999) to 09999 (+9999)
+ss, ssss, sssss - wartość, liczba całkowita ze znakiem z zakresu:
+ss   : od 19 (-9)       do 09 (+9)
+ssss : od 1999  (-999)  do 0999 (+999)
+sssss: od 19999 (-9999) do 09999 (+9999)
 
-The most significant bits (leftmost bit) means:
-0: positive value
-1: negative value
+Najbardziej znacząca cyfra (pierwsza od lewej strony) oznacza koduje znak liczby:
+0: wartość dodatnia
+1: wartość ujemna
 
-Addressing modes:
+Flagi:
+NEGATIVE
+ZERO
 
-             91... - direct, two byte length, addressing
-             92... - immediate, one byte length, addressing
-             93... - immediate, two byte length, addressing
-             94... - indirect, one byte length, addressing
-             95... - indirect, two byte length, addressing
+Flagi ustawiane są w efekcie wykonania operacji arytmetycznych: ADD, SUB, MUL, INC, DEC.
 
-Mnemonic      Machine code  Meaning
-+ HLT           00000         Stop the cpu.
-+ CPA  aaaa     1aaaa         Copy value from memory at address aaaa to accumulator, A := M[aaaa].
-+ CPA  (ss)     921ss         Copy exact value ss to accumulator, A := ss.
-+ CPA  (sssss)  93100 sssss   Copy exact value sssss (located in next byte) to accumulator, A := sssss.
-+ CPA  [aa]     941aa         Copy value from memory at address given in memory at address aa to accumulator, A := M[M[aa]].
-+ CPA  [aaaaa]  95100 aaaaa   Copy value from memory at address given in memory at address aaaaa to accumulator, A := M[M[aaaaa]].
-+ STO  aaaa     2aaaa         Copy value from accumulator to memory at address aaaa, M[aaaa] := A.
-+ STO  [aa]     942aa         Copy value from accumulator to memory at address given in memory at address aa, M[M[aa]] := A.
-+ STO  [aaaaa]  95200 aaaaa   Copy value from accumulator to memory at address given in memory at address aaaaa, M[M[aaaaa]] := A.
-+ ADD  aaaa     3aaaa         Add value at specified address aaaa to accumulator. Result is stored in accumulator, A := A + M[aaaa].
-+ ADD  (ss)     923ss         Add exact value ss to accumulator. Result is stored in accumulator, A := A + ss.
-+ ADD  (sssss)  93300 sssss   Add exact value sssss (located in next byte) to accumulator. Result is stored in accumulator, A := A + sssss.
-+ ADD  [aa]     943aa         Add value from memory at address given in memory at address aa to accumulator, A := A + M[M[aa]].
-+ ADD  [aaaaa]  95300 aaaaa   Add value from memory at address given in memory at address aaaaa to accumulator, A := A + M[M[aaaaa]].
-+ SUB  aaaa     4aaaa         Subtract value at specified address aaaa from accumulator. Result is stored in accumulator A := A - M[aaaa].
-+ SUB  (ss)     924ss         Subtract exact value ss from accumulator. Result is stored in accumulator, A := A - ss.
-+ SUB  (sssss)  93400 sssss   Subtract exact value sssss (located in next byte) from accumulator. Result is stored in accumulator, A := A - sssss.
-+ SUB  [aa]     944aa         Subtract value from memory at address given in memory at address aa from accumulator, A := A - M[M[aa]].
-+ SUB  [aaaaa]  95400 aaaaa   Subtract value from memory at address given in memory at address aaaaa from accumulator, A := A - M[M[aaaaa]].
-+ MUL  aaaa     5aaaa         Multiply value from accumulator by value at specified address aaaa. Result is stored in accumulator A := A * M[aaaa].
-+ MUL  (ss)     925ss         Multiply value from accumulator by exact value ss. Result is stored in accumulator, A := A * ss.
-+ MUL  (sssss)  93500 sssss   Multiply value from accumulator by exact value ss (located in next byte). Result is stored in accumulator, A := A * sssss.
-+ MUL  [aa]     945aa         Multiply value from accumulator by value from memory at address given in memory at address aa, A := A * M[M[aa]].
-+ MUL  [aaaaa]  95500 aaaaa   Multiply value from accumulator by value from memory at address given in memory at address aaaaa, A := A * M[M[aaaaa]].
-+ BRA  aaaa     6aaaa         Unconditional branch to instruction located at address aaaa.
-+ BRN  aaaa     7aaaa         Conditional branch to instruction located at address aaaa if value stored in accumulator is negative.
-BRNF aa      907aa
-+ BRZ  aaaa     8aaaa         Conditional branch to instruction located at address aaaa if value stored in accumulator is equal to zero.
-BRZF xx      908xx
-+ INC  aaa      01aaa         Increase value at address aaa by 1, M[aaa] := M[aaa] + 1.
-+ DEC  aaa      02aaa         Decrease value at address aaa by 1, M[aaa] := M[aaa] - 1.
-PUSH         03000        Push value from accumulator onto the stack, A -> STACK.
-PUSH xxxxx   91030 xxxxx  Push value at address xxxxx onto the stack, MEM(xxxxx) -> STACK.
-PUSH (xxxxx) 93030 xxxxx  Push exact value xxxx onto the stack, xxxxx -> STACK.
-PUSH [xxxxx] 95030 xxxxx  Push value at address specified at address xxxxx onto the stack, MEM(MEM(xxxxx)) -> STACK.
-POP          04000        POP value from the stack to accumulator, STACK -> A.
-POP  xxxxx   91040 xxxxx
-POP  (xxxxx) 93040 xxxxx
-POP  [xxxxx] 95040 xxxxx
+Tryby adresowania:
+
+             91... - bezpośrednie, dwubajtowe
+             92... - natychmiastowe, jednobajtowe
+             93... - natychmiastowe, dwubajtowe
+             94... - pośrednie, jednobajtowe
+             95... - pośrednie, dwubajtowe
+
+Mnemonic      Kod maszynowy Znaczenie
+HLT           00000         Zatrzymaj cpu.
+CPA  aaaa     1aaaa         Skopiuj wartość z pamięci pod adresem aaaa do akumulatora A := M[aaaa].
+CPA  (ss)     921ss         Skopiuj dokładną wartość ss do akumulatora, A := ss.
+CPA  (sssss)  93100 sssss   Skopiuj dokładną wartość sssss (znajdującą się w następnym bajcie) do akumulatora A := sssss.
+CPA  [aa]     941aa         Skopiuj wartość z pamięci pod adres podany w pamięci pod adresem aa do
+                             akumulatora, A := M[M[aa]].
+CPA  [aaaaa]  95100 aaaaa   Skopiuj wartość z pamięci pod adres podanym w pamięci pod adresem aaaaa
+                             do akumulatora A := M[M[aaaaa]].
+STO  aaaa     2aaaa         Skopiuj wartość z akumulatora do pamięci pod adres aaaa, M[aaaa] := A.
+STO  [aa]     942aa         Skopiuj wartość z akumulatora do pamięci pod adres podanym w pamięci
+                             pod adresem aa, M[M[aa]] := A.
+STO  [aaaaa]  95200 aaaaa   Skopiuj wartość z akumulatora do pamięci pod adres podanym w pamięci
+                             pod adresem aaaaa, M[M[aaaaa]] := A.
+ADD  aaaa     3aaaa         Dodaj wartość pod podanym adresem aaaa do akumulatora. Wynik został zapisany
+                             w akumulatorze A := A + M[aaaa].
+ADD  (ss)     923ss         Dodaj dokładną wartość ss do akumulatora. Wynik zapisywany jest w akumulatorze,
+                             A := A + ss.
+ADD  (sssss)  93300 sssss   Dodaj dokładną wartość sssss (znajdującą się w następnym bajcie) do akumulatora.
+                             Wynik zapisywany jest w akumulatorze A := A + sssss.
+ADD  [aa]     943aa         Dodaj wartość z pamięci pod adresem podanym w pamięci pod adresem aa
+                             do akumulatora A := A + M[M[aa]].
+ADD  [aaaaa]  95300 aaaaa   Dodaj wartość z pamięci pod adresem podanym w pamięci pod adresem aaaaa
+                             do akumulatora, A := A + M[M[aaaaa]].
+SUB  aaaa     4aaaa         Odejmij wartość pod podanym adresem aaaa od akumulatora.
+                             Wynik zapisywany jest w akumulatorze A := A - M[aaaa].
+SUB  (ss)     924ss         Odejmij dokładną wartość ss od akumulatora. Wynik zapisywany jest
+                             w akumulatorze, A := A - ss.
+SUB  (sssss)  93400 sssss   Odejmij od akumulatora dokładną wartość sssss (znajdującą się w następnym bajcie).
+                             Wynik zapisywany jest w akumulatorze, A := A - sssss.
+SUB  [aa]     944aa         Odejmij wartość z pamięci pod adresem podanym w pamięci pod adresem aa
+                             z akumulatora, A := A - M[M[aa]].
+SUB  [aaaaa]  95400 aaaaa   Odejmij wartość z pamięci pod adresem podanym w pamięci
+                             pod adresem aaaaa z akumulatora, A := A - M[M[aaaaa]].
+MUL  aaaa     5aaaa         Pomnóż wartość z akumulatora przez wartość pod podanym adresem aaaa.
+                             Wynik zapisywany jest w akumulatorze A := A * M[aaaa].
+MUL  (ss)     925ss         Pomnóż wartość z akumulatora przez dokładną wartość ss. Wynik zapisywany jest
+                             w akumulatorze, A := A * ss.
+MUL  (sssss)  93500 sssss   Pomnóż wartość z akumulatora przez dokładną wartość sssss (znajdującą się w następnym bajcie).
+                             Wynik zapisywany jest w akumulatorze A := A * sssss.
+MUL  [aa]     945aa         Pomnóż wartość z akumulatora przez wartość z pamięci znajdującą się pod adresem
+                             określonym przez wartość pamięci pod adresem aa, A := A * M[M[aa]].
+MUL  [aaaaa]  95500 aaaaa   Pomnóż wartość z akumulatora przez wartość z pamięci pod podanym adresem
+                             w pamięci pod adresem aaaaa, A := A * M[M[aaaaa]].
+BRA  aaaa     6aaaa         Bezwarunkowe przejście do instrukcji znajdującej się pod adresem aaaa.
+BRN  aaaa     7aaaa         Warunkowe przejście do instrukcji znajdującej się pod adresem aaaa jeśli wartość
+                             przechowywana w akumulatorze jest ujemna.
+BRNF aa       907aa         Warunkowe przejście do instrukcji znajdującej się pod adresem aa
+                             jeśli flaga NEGATIVE ma wartość TRUE.
+BRZ  aaaa     8aaaa         Warunkowe przejście do instrukcji znajdującej się pod adresem aaaa
+                             jeśli wartość przechowywana w akumulatorze jest równa zero.
+BRZF aa       908aa         Warunkowe przejście do instrukcji znajdującej się pod adresem aa, jeśli flaga ZERO ma wartość TRUE.
+INC  aaa      01aaa         Zwiększ wartość pod adresem aaa o 1, M[aaa] := M[aaa] + 1.
+DEC  aaa      02aaa         Zmniejsz wartość pod adresem aaa o 1, M[aaa] := M[aaa] - 1.
+PUSH          03000         Skopiuj wartość z akumulatora na stos, A -> STACK.
+PUSH aaaaa    91030 aaaaa   Skopiuj wartość pod adresem aaaaa na stos, M[aaaaa] -> STACK.
+PUSH (sssss)  93030 sssss   Połóż dokładną wartość sssss na stos, ssssss -> STACK.
+PUSH [aaaaa]  95030 aaaaa   Połóż wartość pod adresem podanym pod adresem aaaaa na stos,
+                             M[M[aaaaa]] -> STOS.
+POP           04000         Skopiuj wartość ze stosu do akumulatora, STACK -> A.
+POP  aaaaa    91040 aaaaa   Pobierz wartość ze stosu i umieść ją pod adresem aaaaa, STACK -> M[aaaaa].
+POP  [aaaaa]  95040 aaaaa   Pobierz wartość ze stosu i umieść ją pod adresem określonym przez wartość
+                             pod adresem aaaaa, STACK -> M[M[aaaaa]].
 ```

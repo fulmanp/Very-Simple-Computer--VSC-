@@ -1,0 +1,1808 @@
+MacBook-Piotr:src fulmanp$ python3 vsc.py
+
+Welcome to VSCA (Very Simple Computer Assembler)
+Version 1.0
+Build 202311192355
+Type -h and confirm with ENTER for help.
+
+> -load tutorial_06_05_solution_2.mc
+Program loaded from: tutorial_06_05_solution_2.mc
+> -startAddr 30
+Starting at address: 30
+> -run -step
+Executing one instruction
+Registers:
+IR = 94126
+BP = 9999
+SP = 9999
+ A = None
+IP = 30
+Flags:
+zero     = False
+negative = False
+
+Description: Copy value from memory at address given in memory at address aa to accumulator, A := M[M[aa]].
+Mnemonic: CPA [aa]
+Machine code: 941aa
+Addressing: indirect, one byte length
+Value: 00002
+Value in accumulator as bits: 00002
+Value in accumulator as int: +0002
+> 
+Executing one instruction
+Registers:
+IR = 70040
+BP = 9999
+SP = 9999
+ A = 00002
+IP = 31
+Flags:
+zero     = False
+negative = False
+
+Description: Conditional branch to instruction located at address aaaa if value stored in accumulator is negative.
+Mnemonic: BRN aaaa
+Machine code: 7aaaa
+Addressing: direct
+Address: 0040
+Value in accumulator: 00002
+Value in accumulator is positive
+> 
+Executing one instruction
+Registers:
+IR = 93300
+BP = 9999
+SP = 9999
+ A = 00002
+IP = 32
+Flags:
+zero     = False
+negative = False
+
+Description: Add exact value sssss (located in next byte) to accumulator. Result is stored in accumulator, A := A + sssss.
+Mnemonic: ADD (sssss)
+Machine code: 93300 sssss
+Addressing: indirect, two byte length
+Value as bits: 00010
+Value as int: +0010
+Value in accumulator as bits: 00012
+Value in accumulator as int: +0012
+> 
+Executing one instruction
+Registers:
+IR = 20024
+BP = 9999
+SP = 9999
+ A = 00012
+IP = 34
+Flags:
+zero     = False
+negative = False
+
+Description: Copy value from accumulator to memory at address aaaa, M[aaaa] := A.
+Mnemonic: STO aaaa
+Machine code: 2aaaa
+Addressing: direct
+Store at address 0024 value: 00012
+> 
+Executing one instruction
+Registers:
+IR = 10025
+BP = 9999
+SP = 9999
+ A = 00012
+IP = 35
+Flags:
+zero     = False
+negative = False
+
+Description: Copy value from memory at address aaaa to accumulator, A := M[aaaa].
+Mnemonic: CPA aaaa
+Machine code: 1aaaa
+Addressing: direct
+Value at address 0025: 00000
+Value in accumulator as bits: 00000
+Value in accumulator as int: 00000
+> 
+Executing one instruction
+Registers:
+IR = 94324
+BP = 9999
+SP = 9999
+ A = 00000
+IP = 36
+Flags:
+zero     = False
+negative = False
+
+Description: Add value from memory at address given in memory at address aa to accumulator, A := A + M[M[aa]].
+Mnemonic: ADD [aa]
+Machine code: 943aa
+Addressing: indirect, one byte length
+Value as bits: 00007
+Value as int: +0007
+Value in accumulator as bits: 00007
+Value in accumulator as int: +0007
+> 
+Executing one instruction
+Registers:
+IR = 20025
+BP = 9999
+SP = 9999
+ A = 00007
+IP = 37
+Flags:
+zero     = False
+negative = False
+
+Description: Copy value from accumulator to memory at address aaaa, M[aaaa] := A.
+Mnemonic: STO aaaa
+Machine code: 2aaaa
+Addressing: direct
+Store at address 0025 value: 00007
+> 
+Executing one instruction
+Registers:
+IR = 01026
+BP = 9999
+SP = 9999
+ A = 00007
+IP = 38
+Flags:
+zero     = False
+negative = False
+
+Description: Increase value at address aaa by 1, M[aaa] := M[aaa] + 1.
+Mnemonic: INC aaa
+Machine code: 01aaa
+Addressing: direct
+Old value at address 0026 as bits: 00020
+Old value at address 0026 as int: +0020
+New value at address 0026 as bits: 00021
+New value at address 0026 as int: +0021
+> 
+Executing one instruction
+Registers:
+IR = 60030
+BP = 9999
+SP = 9999
+ A = 00007
+IP = 39
+Flags:
+zero     = False
+negative = False
+
+Description: Unconditional branch to instruction located at address aaaa.
+Mnemonic: BRA aaaa
+Machine code: 6aaaa
+Addressing: direct
+Address: 0030
+> 
+Executing one instruction
+Registers:
+IR = 94126
+BP = 9999
+SP = 9999
+ A = 00007
+IP = 30
+Flags:
+zero     = False
+negative = False
+
+Description: Copy value from memory at address given in memory at address aa to accumulator, A := M[M[aa]].
+Mnemonic: CPA [aa]
+Machine code: 941aa
+Addressing: indirect, one byte length
+Value: 00005
+Value in accumulator as bits: 00005
+Value in accumulator as int: +0005
+> 
+Executing one instruction
+Registers:
+IR = 70040
+BP = 9999
+SP = 9999
+ A = 00005
+IP = 31
+Flags:
+zero     = False
+negative = False
+
+Description: Conditional branch to instruction located at address aaaa if value stored in accumulator is negative.
+Mnemonic: BRN aaaa
+Machine code: 7aaaa
+Addressing: direct
+Address: 0040
+Value in accumulator: 00005
+Value in accumulator is positive
+> 
+Executing one instruction
+Registers:
+IR = 93300
+BP = 9999
+SP = 9999
+ A = 00005
+IP = 32
+Flags:
+zero     = False
+negative = False
+
+Description: Add exact value sssss (located in next byte) to accumulator. Result is stored in accumulator, A := A + sssss.
+Mnemonic: ADD (sssss)
+Machine code: 93300 sssss
+Addressing: indirect, two byte length
+Value as bits: 00010
+Value as int: +0010
+Value in accumulator as bits: 00015
+Value in accumulator as int: +0015
+> 
+Executing one instruction
+Registers:
+IR = 20024
+BP = 9999
+SP = 9999
+ A = 00015
+IP = 34
+Flags:
+zero     = False
+negative = False
+
+Description: Copy value from accumulator to memory at address aaaa, M[aaaa] := A.
+Mnemonic: STO aaaa
+Machine code: 2aaaa
+Addressing: direct
+Store at address 0024 value: 00015
+> 
+Executing one instruction
+Registers:
+IR = 10025
+BP = 9999
+SP = 9999
+ A = 00015
+IP = 35
+Flags:
+zero     = False
+negative = False
+
+Description: Copy value from memory at address aaaa to accumulator, A := M[aaaa].
+Mnemonic: CPA aaaa
+Machine code: 1aaaa
+Addressing: direct
+Value at address 0025: 00007
+Value in accumulator as bits: 00007
+Value in accumulator as int: +0007
+> 
+Executing one instruction
+Registers:
+IR = 94324
+BP = 9999
+SP = 9999
+ A = 00007
+IP = 36
+Flags:
+zero     = False
+negative = False
+
+Description: Add value from memory at address given in memory at address aa to accumulator, A := A + M[M[aa]].
+Mnemonic: ADD [aa]
+Machine code: 943aa
+Addressing: indirect, one byte length
+Value as bits: 00004
+Value as int: +0004
+Value in accumulator as bits: 00011
+Value in accumulator as int: +0011
+> 
+Executing one instruction
+Registers:
+IR = 20025
+BP = 9999
+SP = 9999
+ A = 00011
+IP = 37
+Flags:
+zero     = False
+negative = False
+
+Description: Copy value from accumulator to memory at address aaaa, M[aaaa] := A.
+Mnemonic: STO aaaa
+Machine code: 2aaaa
+Addressing: direct
+Store at address 0025 value: 00011
+> 
+Executing one instruction
+Registers:
+IR = 01026
+BP = 9999
+SP = 9999
+ A = 00011
+IP = 38
+Flags:
+zero     = False
+negative = False
+
+Description: Increase value at address aaa by 1, M[aaa] := M[aaa] + 1.
+Mnemonic: INC aaa
+Machine code: 01aaa
+Addressing: direct
+Old value at address 0026 as bits: 00021
+Old value at address 0026 as int: +0021
+New value at address 0026 as bits: 00022
+New value at address 0026 as int: +0022
+> 
+Executing one instruction
+Registers:
+IR = 60030
+BP = 9999
+SP = 9999
+ A = 00011
+IP = 39
+Flags:
+zero     = False
+negative = False
+
+Description: Unconditional branch to instruction located at address aaaa.
+Mnemonic: BRA aaaa
+Machine code: 6aaaa
+Addressing: direct
+Address: 0030
+> 
+Executing one instruction
+Registers:
+IR = 94126
+BP = 9999
+SP = 9999
+ A = 00011
+IP = 30
+Flags:
+zero     = False
+negative = False
+
+Description: Copy value from memory at address given in memory at address aa to accumulator, A := M[M[aa]].
+Mnemonic: CPA [aa]
+Machine code: 941aa
+Addressing: indirect, one byte length
+Value: 00007
+Value in accumulator as bits: 00007
+Value in accumulator as int: +0007
+> 
+Executing one instruction
+Registers:
+IR = 70040
+BP = 9999
+SP = 9999
+ A = 00007
+IP = 31
+Flags:
+zero     = False
+negative = False
+
+Description: Conditional branch to instruction located at address aaaa if value stored in accumulator is negative.
+Mnemonic: BRN aaaa
+Machine code: 7aaaa
+Addressing: direct
+Address: 0040
+Value in accumulator: 00007
+Value in accumulator is positive
+> 
+Executing one instruction
+Registers:
+IR = 93300
+BP = 9999
+SP = 9999
+ A = 00007
+IP = 32
+Flags:
+zero     = False
+negative = False
+
+Description: Add exact value sssss (located in next byte) to accumulator. Result is stored in accumulator, A := A + sssss.
+Mnemonic: ADD (sssss)
+Machine code: 93300 sssss
+Addressing: indirect, two byte length
+Value as bits: 00010
+Value as int: +0010
+Value in accumulator as bits: 00017
+Value in accumulator as int: +0017
+> 
+Executing one instruction
+Registers:
+IR = 20024
+BP = 9999
+SP = 9999
+ A = 00017
+IP = 34
+Flags:
+zero     = False
+negative = False
+
+Description: Copy value from accumulator to memory at address aaaa, M[aaaa] := A.
+Mnemonic: STO aaaa
+Machine code: 2aaaa
+Addressing: direct
+Store at address 0024 value: 00017
+> 
+Executing one instruction
+Registers:
+IR = 10025
+BP = 9999
+SP = 9999
+ A = 00017
+IP = 35
+Flags:
+zero     = False
+negative = False
+
+Description: Copy value from memory at address aaaa to accumulator, A := M[aaaa].
+Mnemonic: CPA aaaa
+Machine code: 1aaaa
+Addressing: direct
+Value at address 0025: 00011
+Value in accumulator as bits: 00011
+Value in accumulator as int: +0011
+> 
+Executing one instruction
+Registers:
+IR = 94324
+BP = 9999
+SP = 9999
+ A = 00011
+IP = 36
+Flags:
+zero     = False
+negative = False
+
+Description: Add value from memory at address given in memory at address aa to accumulator, A := A + M[M[aa]].
+Mnemonic: ADD [aa]
+Machine code: 943aa
+Addressing: indirect, one byte length
+Value as bits: 00001
+Value as int: +0001
+Value in accumulator as bits: 00012
+Value in accumulator as int: +0012
+> 
+Executing one instruction
+Registers:
+IR = 20025
+BP = 9999
+SP = 9999
+ A = 00012
+IP = 37
+Flags:
+zero     = False
+negative = False
+
+Description: Copy value from accumulator to memory at address aaaa, M[aaaa] := A.
+Mnemonic: STO aaaa
+Machine code: 2aaaa
+Addressing: direct
+Store at address 0025 value: 00012
+> 
+Executing one instruction
+Registers:
+IR = 01026
+BP = 9999
+SP = 9999
+ A = 00012
+IP = 38
+Flags:
+zero     = False
+negative = False
+
+Description: Increase value at address aaa by 1, M[aaa] := M[aaa] + 1.
+Mnemonic: INC aaa
+Machine code: 01aaa
+Addressing: direct
+Old value at address 0026 as bits: 00022
+Old value at address 0026 as int: +0022
+New value at address 0026 as bits: 00023
+New value at address 0026 as int: +0023
+> 
+Executing one instruction
+Registers:
+IR = 60030
+BP = 9999
+SP = 9999
+ A = 00012
+IP = 39
+Flags:
+zero     = False
+negative = False
+
+Description: Unconditional branch to instruction located at address aaaa.
+Mnemonic: BRA aaaa
+Machine code: 6aaaa
+Addressing: direct
+Address: 0030
+> 
+Executing one instruction
+Registers:
+IR = 94126
+BP = 9999
+SP = 9999
+ A = 00012
+IP = 30
+Flags:
+zero     = False
+negative = False
+
+Description: Copy value from memory at address given in memory at address aa to accumulator, A := M[M[aa]].
+Mnemonic: CPA [aa]
+Machine code: 941aa
+Addressing: indirect, one byte length
+Value: 10001
+Value in accumulator as bits: 10001
+Value in accumulator as int: -0001
+> 
+Executing one instruction
+Registers:
+IR = 70040
+BP = 9999
+SP = 9999
+ A = 10001
+IP = 31
+Flags:
+zero     = False
+negative = False
+
+Description: Conditional branch to instruction located at address aaaa if value stored in accumulator is negative.
+Mnemonic: BRN aaaa
+Machine code: 7aaaa
+Addressing: direct
+Address: 0040
+Value in accumulator: 10001
+Value in accumulator is negative
+> 
+Executing one instruction
+Registers:
+IR = 00000
+BP = 9999
+SP = 9999
+ A = 10001
+IP = 40
+Flags:
+zero     = False
+negative = False
+
+Description: Stop the cpu.
+Mnemonic: HLT
+Machine code: 00000
+> -show -memory 25
+M[0025] = 00012
+> 
+MacBook-Air-Piotr:src fulmanp$ python3 vsc.py 
+
+Welcome to VSCA (Very Simple Computer Assembler)
+Version 1.0
+Build 202311141008
+Type -h and confirm with ENTER for help.
+
+> -load t.mc
+Loading program from: t.mc
+> -startAddr 20
+Starting at address: 20
+> -show -memory 15
+M[0015] = 65502
+> -run -step
+Executing one instruction
+Registers:
+IP = 20
+IR = 02014
+A = None
+
+Description: Decrease value at address aaa by 1, M[aaa] := M[aaa] - 1.
+Mnemonic: DEC aaa
+Machine code: 02aaa
+Addressing: direct
+Old value at address 0014 as bits: 00004
+Old value at address 0014 as int: +0004
+New value at address 0014 as bits: 00003
+New value at address 0014 as int: +0003
+> 
+Executing one instruction
+Registers:
+IP = 21
+IR = 10010
+A = None
+
+Description: Copy value from memory at address aaaa to accumulator, A := M[aaaa].
+Mnemonic: CPA aaaa
+Machine code: 1aaaa
+Addressing: direct
+Value at address 0010: 00010
+Value in accumulator as bits: 00010
+Value in accumulator as int: +0010
+> 
+Executing one instruction
+Registers:
+IP = 22
+IR = 20017
+A = 00010
+
+Description: Copy value from accumulator to memory at address aaaa, M[aaaa] := A.
+Mnemonic: STO aaaa
+Machine code: 2aaaa
+Addressing: direct
+Store at address 0017 value: 00010
+> 
+Executing one instruction
+Registers:
+IP = 23
+IR = 93100
+A = 00010
+
+Description: Copy exact value sssss (located in next byte) to accumulator, A := sssss.
+Mnemonic: CPA (sssss)
+Machine code: 93100 sssss
+Addressing: immediate, two byte length
+Value: 00010
+Value in accumulator as bits: 00010
+Value in accumulator as int: +0010
+> 
+Executing one instruction
+Registers:
+IP = 25
+IR = 92301
+A = 00010
+
+Description: Add exact value ss to accumulator. Result is stored in accumulator, A := A + ss.
+Mnemonic: ADD (ss)
+Machine code: 923ss
+Addressing: immediate, one byte length
+Value as bits: 01
+Value as int: +0001
+Value in accumulator as bits: 00011
+Value in accumulator as int: +0011
+> 
+Executing one instruction
+Registers:
+IP = 26
+IR = 20016
+A = 00011
+
+Description: Copy value from accumulator to memory at address aaaa, M[aaaa] := A.
+Mnemonic: STO aaaa
+Machine code: 2aaaa
+Addressing: direct
+Store at address 0016 value: 00011
+> 
+Executing one instruction
+Registers:
+IP = 27
+IR = 10014
+A = 00011
+
+Description: Copy value from memory at address aaaa to accumulator, A := M[aaaa].
+Mnemonic: CPA aaaa
+Machine code: 1aaaa
+Addressing: direct
+Value at address 0014: 00003
+Value in accumulator as bits: 00003
+Value in accumulator as int: +0003
+> 
+Executing one instruction
+Registers:
+IP = 28
+IR = 80033
+A = 00003
+
+Description: Conditional branch to instruction located at address aaaa if value stored in accumulator is equal to zero.
+Mnemonic: BRZ aaaa
+Machine code: 8aaaa
+Addressing: direct
+Address: 0033
+Value in accumulator: 00003
+Value in accumulator is not equal to zero
+> 
+Executing one instruction
+Registers:
+IP = 29
+IR = 60034
+A = 00003
+
+Description: Unconditional branch to instruction located at address aaaa.
+Mnemonic: BRA aaaa
+Machine code: 6aaaa
+Addressing: direct
+Address: 0034
+> 
+Executing one instruction
+Registers:
+IP = 34
+IR = 94116
+A = 00003
+
+Description: Copy value from memory at address given in memory at address aa to accumulator, A := M[M[aa]]
+Mnemonic: CPA [aa]
+Machine code: 941aa
+Addressing: indirect, one byte length
+Value: 10003
+Value in accumulator as bits: 10003
+Value in accumulator as int: -0003
+> 
+Executing one instruction
+Registers:
+IP = 35
+IR = 40017
+A = 10003
+
+Description: Subtract value at specified address aaaa from accumulator. Result is stored in accumulator A := A - M[aaaa].
+Mnemonic: SUB aaaa
+Machine code: 4aaaa
+Addressing: direct
+Address: 0017
+Value at address 0017 as bits: 00010
+Value at address 0017 as int: +0010
+Value in accumulator as bits: 10013
+Value in accumulator as int: -0013
+> 
+Executing one instruction
+Registers:
+IP = 36
+IR = 70038
+A = 10013
+
+Description: Conditional branch to instruction located at address aaaa if value stored in accumulator is negative.
+Mnemonic: BRN aaaa
+Machine code: 7aaaa
+Addressing: direct
+Address: 0038
+Value in accumulator: 10013
+Value in accumulator is negative
+> 
+Executing one instruction
+Registers:
+IP = 38
+IR = 94116
+A = 10013
+
+Description: Copy value from memory at address given in memory at address aa to accumulator, A := M[M[aa]]
+Mnemonic: CPA [aa]
+Machine code: 941aa
+Addressing: indirect, one byte length
+Value: 10003
+Value in accumulator as bits: 10003
+Value in accumulator as int: -0003
+> 
+Executing one instruction
+Registers:
+IP = 39
+IR = 20017
+A = 10003
+
+Description: Copy value from accumulator to memory at address aaaa, M[aaaa] := A.
+Mnemonic: STO aaaa
+Machine code: 2aaaa
+Addressing: direct
+Store at address 0017 value: 10003
+> 
+Executing one instruction
+Registers:
+IP = 40
+IR = 60030
+A = 10003
+
+Description: Unconditional branch to instruction located at address aaaa.
+Mnemonic: BRA aaaa
+Machine code: 6aaaa
+Addressing: direct
+Address: 0030
+> 
+Executing one instruction
+Registers:
+IP = 30
+IR = 02014
+A = 10003
+
+Description: Decrease value at address aaa by 1, M[aaa] := M[aaa] - 1.
+Mnemonic: DEC aaa
+Machine code: 02aaa
+Addressing: direct
+Old value at address 0014 as bits: 00003
+Old value at address 0014 as int: +0003
+New value at address 0014 as bits: 00002
+New value at address 0014 as int: +0002
+> 
+Executing one instruction
+Registers:
+IP = 31
+IR = 01016
+A = 10003
+
+Description: Increase value at address aaa by 1, M[aaa] := M[aaa] + 1.
+Mnemonic: INC aaa
+Machine code: 01aaa
+Addressing: direct
+Old value at address 0016 as bits: 00011
+Old value at address 0016 as int: +0011
+New value at address 0016 as bits: 00012
+New value at address 0016 as int: +0012
+> 
+Executing one instruction
+Registers:
+IP = 32
+IR = 60027
+A = 10003
+
+Description: Unconditional branch to instruction located at address aaaa.
+Mnemonic: BRA aaaa
+Machine code: 6aaaa
+Addressing: direct
+Address: 0027
+> 
+Executing one instruction
+Registers:
+IP = 27
+IR = 10014
+A = 10003
+
+Description: Copy value from memory at address aaaa to accumulator, A := M[aaaa].
+Mnemonic: CPA aaaa
+Machine code: 1aaaa
+Addressing: direct
+Value at address 0014: 00002
+Value in accumulator as bits: 00002
+Value in accumulator as int: +0002
+> 
+Executing one instruction
+Registers:
+IP = 28
+IR = 80033
+A = 00002
+
+Description: Conditional branch to instruction located at address aaaa if value stored in accumulator is equal to zero.
+Mnemonic: BRZ aaaa
+Machine code: 8aaaa
+Addressing: direct
+Address: 0033
+Value in accumulator: 00002
+Value in accumulator is not equal to zero
+> 
+Executing one instruction
+Registers:
+IP = 29
+IR = 60034
+A = 00002
+
+Description: Unconditional branch to instruction located at address aaaa.
+Mnemonic: BRA aaaa
+Machine code: 6aaaa
+Addressing: direct
+Address: 0034
+> 
+Executing one instruction
+Registers:
+IP = 34
+IR = 94116
+A = 00002
+
+Description: Copy value from memory at address given in memory at address aa to accumulator, A := M[M[aa]]
+Mnemonic: CPA [aa]
+Machine code: 941aa
+Addressing: indirect, one byte length
+Value: 00005
+Value in accumulator as bits: 00005
+Value in accumulator as int: +0005
+> 
+Executing one instruction
+Registers:
+IP = 35
+IR = 40017
+A = 00005
+
+Description: Subtract value at specified address aaaa from accumulator. Result is stored in accumulator A := A - M[aaaa].
+Mnemonic: SUB aaaa
+Machine code: 4aaaa
+Addressing: direct
+Address: 0017
+Value at address 0017 as bits: 10003
+Value at address 0017 as int: -0003
+Value in accumulator as bits: 00008
+Value in accumulator as int: +0008
+> 
+Executing one instruction
+Registers:
+IP = 36
+IR = 70038
+A = 00008
+
+Description: Conditional branch to instruction located at address aaaa if value stored in accumulator is negative.
+Mnemonic: BRN aaaa
+Machine code: 7aaaa
+Addressing: direct
+Address: 0038
+Value in accumulator: 00008
+Value in accumulator is positive
+> 
+Executing one instruction
+Registers:
+IP = 37
+IR = 60040
+A = 00008
+
+Description: Unconditional branch to instruction located at address aaaa.
+Mnemonic: BRA aaaa
+Machine code: 6aaaa
+Addressing: direct
+Address: 0040
+> 
+Executing one instruction
+Registers:
+IP = 40
+IR = 60030
+A = 00008
+
+Description: Unconditional branch to instruction located at address aaaa.
+Mnemonic: BRA aaaa
+Machine code: 6aaaa
+Addressing: direct
+Address: 0030
+> 
+Executing one instruction
+Registers:
+IP = 30
+IR = 02014
+A = 00008
+
+Description: Decrease value at address aaa by 1, M[aaa] := M[aaa] - 1.
+Mnemonic: DEC aaa
+Machine code: 02aaa
+Addressing: direct
+Old value at address 0014 as bits: 00002
+Old value at address 0014 as int: +0002
+New value at address 0014 as bits: 00001
+New value at address 0014 as int: +0001
+> 
+Executing one instruction
+Registers:
+IP = 31
+IR = 01016
+A = 00008
+
+Description: Increase value at address aaa by 1, M[aaa] := M[aaa] + 1.
+Mnemonic: INC aaa
+Machine code: 01aaa
+Addressing: direct
+Old value at address 0016 as bits: 00012
+Old value at address 0016 as int: +0012
+New value at address 0016 as bits: 00013
+New value at address 0016 as int: +0013
+> 
+Executing one instruction
+Registers:
+IP = 32
+IR = 60027
+A = 00008
+
+Description: Unconditional branch to instruction located at address aaaa.
+Mnemonic: BRA aaaa
+Machine code: 6aaaa
+Addressing: direct
+Address: 0027
+> 
+Executing one instruction
+Registers:
+IP = 27
+IR = 10014
+A = 00008
+
+Description: Copy value from memory at address aaaa to accumulator, A := M[aaaa].
+Mnemonic: CPA aaaa
+Machine code: 1aaaa
+Addressing: direct
+Value at address 0014: 00001
+Value in accumulator as bits: 00001
+Value in accumulator as int: +0001
+> 
+Executing one instruction
+Registers:
+IP = 28
+IR = 80033
+A = 00001
+
+Description: Conditional branch to instruction located at address aaaa if value stored in accumulator is equal to zero.
+Mnemonic: BRZ aaaa
+Machine code: 8aaaa
+Addressing: direct
+Address: 0033
+Value in accumulator: 00001
+Value in accumulator is not equal to zero
+> 
+Executing one instruction
+Registers:
+IP = 29
+IR = 60034
+A = 00001
+
+Description: Unconditional branch to instruction located at address aaaa.
+Mnemonic: BRA aaaa
+Machine code: 6aaaa
+Addressing: direct
+Address: 0034
+> 
+Executing one instruction
+Registers:
+IP = 34
+IR = 94116
+A = 00001
+
+Description: Copy value from memory at address given in memory at address aa to accumulator, A := M[M[aa]]
+Mnemonic: CPA [aa]
+Machine code: 941aa
+Addressing: indirect, one byte length
+Value: 00001
+Value in accumulator as bits: 00001
+Value in accumulator as int: +0001
+> 
+Executing one instruction
+Registers:
+IP = 35
+IR = 40017
+A = 00001
+
+Description: Subtract value at specified address aaaa from accumulator. Result is stored in accumulator A := A - M[aaaa].
+Mnemonic: SUB aaaa
+Machine code: 4aaaa
+Addressing: direct
+Address: 0017
+Value at address 0017 as bits: 10003
+Value at address 0017 as int: -0003
+Value in accumulator as bits: 00004
+Value in accumulator as int: +0004
+> 
+Executing one instruction
+Registers:
+IP = 36
+IR = 70038
+A = 00004
+
+Description: Conditional branch to instruction located at address aaaa if value stored in accumulator is negative.
+Mnemonic: BRN aaaa
+Machine code: 7aaaa
+Addressing: direct
+Address: 0038
+Value in accumulator: 00004
+Value in accumulator is positive
+> 
+Executing one instruction
+Registers:
+IP = 37
+IR = 60040
+A = 00004
+
+Description: Unconditional branch to instruction located at address aaaa.
+Mnemonic: BRA aaaa
+Machine code: 6aaaa
+Addressing: direct
+Address: 0040
+> 
+Executing one instruction
+Registers:
+IP = 40
+IR = 60030
+A = 00004
+
+Description: Unconditional branch to instruction located at address aaaa.
+Mnemonic: BRA aaaa
+Machine code: 6aaaa
+Addressing: direct
+Address: 0030
+> 
+Executing one instruction
+Registers:
+IP = 30
+IR = 02014
+A = 00004
+
+Description: Decrease value at address aaa by 1, M[aaa] := M[aaa] - 1.
+Mnemonic: DEC aaa
+Machine code: 02aaa
+Addressing: direct
+Old value at address 0014 as bits: 00001
+Old value at address 0014 as int: +0001
+New value at address 0014 as bits: 00000
+New value at address 0014 as int: 00000
+> 
+Executing one instruction
+Registers:
+IP = 31
+IR = 01016
+A = 00004
+
+Description: Increase value at address aaa by 1, M[aaa] := M[aaa] + 1.
+Mnemonic: INC aaa
+Machine code: 01aaa
+Addressing: direct
+Old value at address 0016 as bits: 00013
+Old value at address 0016 as int: +0013
+New value at address 0016 as bits: 00014
+New value at address 0016 as int: +0014
+> 
+Executing one instruction
+Registers:
+IP = 32
+IR = 60027
+A = 00004
+
+Description: Unconditional branch to instruction located at address aaaa.
+Mnemonic: BRA aaaa
+Machine code: 6aaaa
+Addressing: direct
+Address: 0027
+> 
+Executing one instruction
+Registers:
+IP = 27
+IR = 10014
+A = 00004
+
+Description: Copy value from memory at address aaaa to accumulator, A := M[aaaa].
+Mnemonic: CPA aaaa
+Machine code: 1aaaa
+Addressing: direct
+Value at address 0014: 00000
+Value in accumulator as bits: 00000
+Value in accumulator as int: 00000
+> 
+Executing one instruction
+Registers:
+IP = 28
+IR = 80033
+A = 00000
+
+Description: Conditional branch to instruction located at address aaaa if value stored in accumulator is equal to zero.
+Mnemonic: BRZ aaaa
+Machine code: 8aaaa
+Addressing: direct
+Address: 0033
+Value in accumulator: 00000
+Value in accumulator is equal to zero
+> 
+Executing one instruction
+Registers:
+IP = 33
+IR = 00000
+A = 00000
+
+Description: Stop the cpu.
+Mnemonic: HLT
+Machine code: 00000
+> 
+Executing one instruction
+Program execution halted. Please do reset
+> -show -memory 15
+M[0015] = 65502
+> -show -memory 17
+M[0017] = 10003
+> -eexit
+Unknown command. Type -h for help if you need it.
+> -exit
+MacBook-Air-Piotr:src fulmanp$ clear
+
+MacBook-Air-Piotr:src fulmanp$ python3 vsc.py 
+
+Welcome to VSCA (Very Simple Computer Assembler)
+Version 1.0
+Build 202311141008
+Type -h and confirm with ENTER for help.
+
+> -load t.mc
+Loading program from: t.mc
+> -startAddr 20
+Starting at address: 20
+> -show -memory 15
+M[0015] = 08048
+> -run -step
+Executing one instruction
+Registers:
+IP = 20
+IR = 02014
+A = None
+
+Description: Decrease value at address aaa by 1, M[aaa] := M[aaa] - 1.
+Mnemonic: DEC aaa
+Machine code: 02aaa
+Addressing: direct
+Old value at address 0014 as bits: 00004
+Old value at address 0014 as int: +0004
+New value at address 0014 as bits: 00003
+New value at address 0014 as int: +0003
+> 
+Executing one instruction
+Registers:
+IP = 21
+IR = 10010
+A = None
+
+Description: Copy value from memory at address aaaa to accumulator, A := M[aaaa].
+Mnemonic: CPA aaaa
+Machine code: 1aaaa
+Addressing: direct
+Value at address 0010: 00010
+Value in accumulator as bits: 00010
+Value in accumulator as int: +0010
+> 
+Executing one instruction
+Registers:
+IP = 22
+IR = 20017
+A = 00010
+
+Description: Copy value from accumulator to memory at address aaaa, M[aaaa] := A.
+Mnemonic: STO aaaa
+Machine code: 2aaaa
+Addressing: direct
+Store at address 0017 value: 00010
+> 
+Executing one instruction
+Registers:
+IP = 23
+IR = 93100
+A = 00010
+
+Description: Copy exact value sssss (located in next byte) to accumulator, A := sssss.
+Mnemonic: CPA (sssss)
+Machine code: 93100 sssss
+Addressing: immediate, two byte length
+Value: 00010
+Value in accumulator as bits: 00010
+Value in accumulator as int: +0010
+> 
+Executing one instruction
+Registers:
+IP = 25
+IR = 92301
+A = 00010
+
+Description: Add exact value ss to accumulator. Result is stored in accumulator, A := A + ss.
+Mnemonic: ADD (ss)
+Machine code: 923ss
+Addressing: immediate, one byte length
+Value as bits: 01
+Value as int: +0001
+Value in accumulator as bits: 00011
+Value in accumulator as int: +0011
+> 
+Executing one instruction
+Registers:
+IP = 26
+IR = 20016
+A = 00011
+
+Description: Copy value from accumulator to memory at address aaaa, M[aaaa] := A.
+Mnemonic: STO aaaa
+Machine code: 2aaaa
+Addressing: direct
+Store at address 0016 value: 00011
+> 
+Executing one instruction
+Registers:
+IP = 27
+IR = 10014
+A = 00011
+
+Description: Copy value from memory at address aaaa to accumulator, A := M[aaaa].
+Mnemonic: CPA aaaa
+Machine code: 1aaaa
+Addressing: direct
+Value at address 0014: 00003
+Value in accumulator as bits: 00003
+Value in accumulator as int: +0003
+> 
+Executing one instruction
+Registers:
+IP = 28
+IR = 80033
+A = 00003
+
+Description: Conditional branch to instruction located at address aaaa if value stored in accumulator is equal to zero.
+Mnemonic: BRZ aaaa
+Machine code: 8aaaa
+Addressing: direct
+Address: 0033
+Value in accumulator: 00003
+Value in accumulator is not equal to zero
+> 
+Executing one instruction
+Registers:
+IP = 29
+IR = 60036
+A = 00003
+
+Description: Unconditional branch to instruction located at address aaaa.
+Mnemonic: BRA aaaa
+Machine code: 6aaaa
+Addressing: direct
+Address: 0036
+> 
+Executing one instruction
+Registers:
+IP = 36
+IR = 94116
+A = 00003
+
+Description: Copy value from memory at address given in memory at address aa to accumulator, A := M[M[aa]]
+Mnemonic: CPA [aa]
+Machine code: 941aa
+Addressing: indirect, one byte length
+Value: 10003
+Value in accumulator as bits: 10003
+Value in accumulator as int: -0003
+> 
+Executing one instruction
+Registers:
+IP = 37
+IR = 40017
+A = 10003
+
+Description: Subtract value at specified address aaaa from accumulator. Result is stored in accumulator A := A - M[aaaa].
+Mnemonic: SUB aaaa
+Machine code: 4aaaa
+Addressing: direct
+Address: 0017
+Value at address 0017 as bits: 00010
+Value at address 0017 as int: +0010
+Value in accumulator as bits: 10013
+Value in accumulator as int: -0013
+> 
+Executing one instruction
+Registers:
+IP = 38
+IR = 70040
+A = 10013
+
+Description: Conditional branch to instruction located at address aaaa if value stored in accumulator is negative.
+Mnemonic: BRN aaaa
+Machine code: 7aaaa
+Addressing: direct
+Address: 0040
+Value in accumulator: 10013
+Value in accumulator is negative
+> 
+Executing one instruction
+Registers:
+IP = 40
+IR = 94116
+A = 10013
+
+Description: Copy value from memory at address given in memory at address aa to accumulator, A := M[M[aa]]
+Mnemonic: CPA [aa]
+Machine code: 941aa
+Addressing: indirect, one byte length
+Value: 10003
+Value in accumulator as bits: 10003
+Value in accumulator as int: -0003
+> 
+Executing one instruction
+Registers:
+IP = 41
+IR = 20017
+A = 10003
+
+Description: Copy value from accumulator to memory at address aaaa, M[aaaa] := A.
+Mnemonic: STO aaaa
+Machine code: 2aaaa
+Addressing: direct
+Store at address 0017 value: 10003
+> 
+Executing one instruction
+Registers:
+IP = 42
+IR = 60030
+A = 10003
+
+Description: Unconditional branch to instruction located at address aaaa.
+Mnemonic: BRA aaaa
+Machine code: 6aaaa
+Addressing: direct
+Address: 0030
+> 
+Executing one instruction
+Registers:
+IP = 30
+IR = 02014
+A = 10003
+
+Description: Decrease value at address aaa by 1, M[aaa] := M[aaa] - 1.
+Mnemonic: DEC aaa
+Machine code: 02aaa
+Addressing: direct
+Old value at address 0014 as bits: 00003
+Old value at address 0014 as int: +0003
+New value at address 0014 as bits: 00002
+New value at address 0014 as int: +0002
+> 
+Executing one instruction
+Registers:
+IP = 31
+IR = 01016
+A = 10003
+
+Description: Increase value at address aaa by 1, M[aaa] := M[aaa] + 1.
+Mnemonic: INC aaa
+Machine code: 01aaa
+Addressing: direct
+Old value at address 0016 as bits: 00011
+Old value at address 0016 as int: +0011
+New value at address 0016 as bits: 00012
+New value at address 0016 as int: +0012
+> 
+Executing one instruction
+Registers:
+IP = 32
+IR = 60027
+A = 10003
+
+Description: Unconditional branch to instruction located at address aaaa.
+Mnemonic: BRA aaaa
+Machine code: 6aaaa
+Addressing: direct
+Address: 0027
+> 
+Executing one instruction
+Registers:
+IP = 27
+IR = 10014
+A = 10003
+
+Description: Copy value from memory at address aaaa to accumulator, A := M[aaaa].
+Mnemonic: CPA aaaa
+Machine code: 1aaaa
+Addressing: direct
+Value at address 0014: 00002
+Value in accumulator as bits: 00002
+Value in accumulator as int: +0002
+> 
+Executing one instruction
+Registers:
+IP = 28
+IR = 80033
+A = 00002
+
+Description: Conditional branch to instruction located at address aaaa if value stored in accumulator is equal to zero.
+Mnemonic: BRZ aaaa
+Machine code: 8aaaa
+Addressing: direct
+Address: 0033
+Value in accumulator: 00002
+Value in accumulator is not equal to zero
+> 
+Executing one instruction
+Registers:
+IP = 29
+IR = 60036
+A = 00002
+
+Description: Unconditional branch to instruction located at address aaaa.
+Mnemonic: BRA aaaa
+Machine code: 6aaaa
+Addressing: direct
+Address: 0036
+> 
+Executing one instruction
+Registers:
+IP = 36
+IR = 94116
+A = 00002
+
+Description: Copy value from memory at address given in memory at address aa to accumulator, A := M[M[aa]]
+Mnemonic: CPA [aa]
+Machine code: 941aa
+Addressing: indirect, one byte length
+Value: 00005
+Value in accumulator as bits: 00005
+Value in accumulator as int: +0005
+> 
+Executing one instruction
+Registers:
+IP = 37
+IR = 40017
+A = 00005
+
+Description: Subtract value at specified address aaaa from accumulator. Result is stored in accumulator A := A - M[aaaa].
+Mnemonic: SUB aaaa
+Machine code: 4aaaa
+Addressing: direct
+Address: 0017
+Value at address 0017 as bits: 10003
+Value at address 0017 as int: -0003
+Value in accumulator as bits: 00008
+Value in accumulator as int: +0008
+> 
+Executing one instruction
+Registers:
+IP = 38
+IR = 70040
+A = 00008
+
+Description: Conditional branch to instruction located at address aaaa if value stored in accumulator is negative.
+Mnemonic: BRN aaaa
+Machine code: 7aaaa
+Addressing: direct
+Address: 0040
+Value in accumulator: 00008
+Value in accumulator is positive
+> 
+Executing one instruction
+Registers:
+IP = 39
+IR = 60042
+A = 00008
+
+Description: Unconditional branch to instruction located at address aaaa.
+Mnemonic: BRA aaaa
+Machine code: 6aaaa
+Addressing: direct
+Address: 0042
+> 
+Executing one instruction
+Registers:
+IP = 42
+IR = 60030
+A = 00008
+
+Description: Unconditional branch to instruction located at address aaaa.
+Mnemonic: BRA aaaa
+Machine code: 6aaaa
+Addressing: direct
+Address: 0030
+> 
+Executing one instruction
+Registers:
+IP = 30
+IR = 02014
+A = 00008
+
+Description: Decrease value at address aaa by 1, M[aaa] := M[aaa] - 1.
+Mnemonic: DEC aaa
+Machine code: 02aaa
+Addressing: direct
+Old value at address 0014 as bits: 00002
+Old value at address 0014 as int: +0002
+New value at address 0014 as bits: 00001
+New value at address 0014 as int: +0001
+> 
+Executing one instruction
+Registers:
+IP = 31
+IR = 01016
+A = 00008
+
+Description: Increase value at address aaa by 1, M[aaa] := M[aaa] + 1.
+Mnemonic: INC aaa
+Machine code: 01aaa
+Addressing: direct
+Old value at address 0016 as bits: 00012
+Old value at address 0016 as int: +0012
+New value at address 0016 as bits: 00013
+New value at address 0016 as int: +0013
+> 
+Executing one instruction
+Registers:
+IP = 32
+IR = 60027
+A = 00008
+
+Description: Unconditional branch to instruction located at address aaaa.
+Mnemonic: BRA aaaa
+Machine code: 6aaaa
+Addressing: direct
+Address: 0027
+> 
+Executing one instruction
+Registers:
+IP = 27
+IR = 10014
+A = 00008
+
+Description: Copy value from memory at address aaaa to accumulator, A := M[aaaa].
+Mnemonic: CPA aaaa
+Machine code: 1aaaa
+Addressing: direct
+Value at address 0014: 00001
+Value in accumulator as bits: 00001
+Value in accumulator as int: +0001
+> 
+Executing one instruction
+Registers:
+IP = 28
+IR = 80033
+A = 00001
+
+Description: Conditional branch to instruction located at address aaaa if value stored in accumulator is equal to zero.
+Mnemonic: BRZ aaaa
+Machine code: 8aaaa
+Addressing: direct
+Address: 0033
+Value in accumulator: 00001
+Value in accumulator is not equal to zero
+> 
+Executing one instruction
+Registers:
+IP = 29
+IR = 60036
+A = 00001
+
+Description: Unconditional branch to instruction located at address aaaa.
+Mnemonic: BRA aaaa
+Machine code: 6aaaa
+Addressing: direct
+Address: 0036
+> 
+Executing one instruction
+Registers:
+IP = 36
+IR = 94116
+A = 00001
+
+Description: Copy value from memory at address given in memory at address aa to accumulator, A := M[M[aa]]
+Mnemonic: CPA [aa]
+Machine code: 941aa
+Addressing: indirect, one byte length
+Value: 00001
+Value in accumulator as bits: 00001
+Value in accumulator as int: +0001
+> 
+Executing one instruction
+Registers:
+IP = 37
+IR = 40017
+A = 00001
+
+Description: Subtract value at specified address aaaa from accumulator. Result is stored in accumulator A := A - M[aaaa].
+Mnemonic: SUB aaaa
+Machine code: 4aaaa
+Addressing: direct
+Address: 0017
+Value at address 0017 as bits: 10003
+Value at address 0017 as int: -0003
+Value in accumulator as bits: 00004
+Value in accumulator as int: +0004
+> 
+Executing one instruction
+Registers:
+IP = 38
+IR = 70040
+A = 00004
+
+Description: Conditional branch to instruction located at address aaaa if value stored in accumulator is negative.
+Mnemonic: BRN aaaa
+Machine code: 7aaaa
+Addressing: direct
+Address: 0040
+Value in accumulator: 00004
+Value in accumulator is positive
+> 
+Executing one instruction
+Registers:
+IP = 39
+IR = 60042
+A = 00004
+
+Description: Unconditional branch to instruction located at address aaaa.
+Mnemonic: BRA aaaa
+Machine code: 6aaaa
+Addressing: direct
+Address: 0042
+> 
+Executing one instruction
+Registers:
+IP = 42
+IR = 60030
+A = 00004
+
+Description: Unconditional branch to instruction located at address aaaa.
+Mnemonic: BRA aaaa
+Machine code: 6aaaa
+Addressing: direct
+Address: 0030
+> 
+Executing one instruction
+Registers:
+IP = 30
+IR = 02014
+A = 00004
+
+Description: Decrease value at address aaa by 1, M[aaa] := M[aaa] - 1.
+Mnemonic: DEC aaa
+Machine code: 02aaa
+Addressing: direct
+Old value at address 0014 as bits: 00001
+Old value at address 0014 as int: +0001
+New value at address 0014 as bits: 00000
+New value at address 0014 as int: 00000
+> 
+Executing one instruction
+Registers:
+IP = 31
+IR = 01016
+A = 00004
+
+Description: Increase value at address aaa by 1, M[aaa] := M[aaa] + 1.
+Mnemonic: INC aaa
+Machine code: 01aaa
+Addressing: direct
+Old value at address 0016 as bits: 00013
+Old value at address 0016 as int: +0013
+New value at address 0016 as bits: 00014
+New value at address 0016 as int: +0014
+> 
+Executing one instruction
+Registers:
+IP = 32
+IR = 60027
+A = 00004
+
+Description: Unconditional branch to instruction located at address aaaa.
+Mnemonic: BRA aaaa
+Machine code: 6aaaa
+Addressing: direct
+Address: 0027
+> 
+Executing one instruction
+Registers:
+IP = 27
+IR = 10014
+A = 00004
+
+Description: Copy value from memory at address aaaa to accumulator, A := M[aaaa].
+Mnemonic: CPA aaaa
+Machine code: 1aaaa
+Addressing: direct
+Value at address 0014: 00000
+Value in accumulator as bits: 00000
+Value in accumulator as int: 00000
+> 
+Executing one instruction
+Registers:
+IP = 28
+IR = 80033
+A = 00000
+
+Description: Conditional branch to instruction located at address aaaa if value stored in accumulator is equal to zero.
+Mnemonic: BRZ aaaa
+Machine code: 8aaaa
+Addressing: direct
+Address: 0033
+Value in accumulator: 00000
+Value in accumulator is equal to zero
+> 
+Executing one instruction
+Registers:
+IP = 33
+IR = 10017
+A = 00000
+
+Description: Copy value from memory at address aaaa to accumulator, A := M[aaaa].
+Mnemonic: CPA aaaa
+Machine code: 1aaaa
+Addressing: direct
+Value at address 0017: 10003
+Value in accumulator as bits: 10003
+Value in accumulator as int: -0003
+> 
+Executing one instruction
+Registers:
+IP = 34
+IR = 20015
+A = 10003
+
+Description: Copy value from accumulator to memory at address aaaa, M[aaaa] := A.
+Mnemonic: STO aaaa
+Machine code: 2aaaa
+Addressing: direct
+Store at address 0015 value: 10003
+> 
+Executing one instruction
+Registers:
+IP = 35
+IR = 00000
+A = 10003
+
+Description: Stop the cpu.
+Mnemonic: HLT
+Machine code: 00000
+> 
+Executing one instruction
+Program execution halted. Please do reset
+> -show -memory 15
+M[0015] = 10003
