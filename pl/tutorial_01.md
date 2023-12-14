@@ -14,7 +14,13 @@ As given above.
 - Decimal numbers.
 - 1 accumulator (internal memory).
 
-Accumulator is a dedicated memory cell located in CPU. Such dedicated memory cells are also called **register(s)**. Memory (RAM -- *random access memory*) consist of 10000 cells with numbers (**addresses**) from 0 to 9999. A sign-value representation is used to store negative/positive numbers -- when most significant digit is set to 0, the number is positive and negative otherwise (i.e. when different than 0). All arithmetic instructions works on signed numbers. 
+Accumulator is a dedicated memory cell located in CPU. Such dedicated memory cells are also called **register(s)**. Memory (RAM -- *random access memory*) consist of 10000 cells with numbers (**addresses**) from 0 to 9999. A sign-value representation is used to store negative/positive numbers:
+
+- when most significant digit is set to 0, the number is positive,
+- when most significant digit is set to 1, the number is negative,
+- the only adimssible representation for zero (`0`) is that with most significant digit set to 0.
+
+All arithmetic instructions works on signed numbers. 
 
 ## Machine Language and Assembler
 

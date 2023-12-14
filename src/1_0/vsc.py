@@ -833,10 +833,19 @@ def processCommandLine(commandsLine, listOfSwitch):
 
   #listOfSwitch = ["-path", "-tag", "-type", "-h"]
   commandsListTmp = []
-  commandsDict = {}
+  commandListUnknown = []
+  
   for index, item in enumerate(commandsLine):
     if item in listOfSwitch:
       commandsListTmp.append({"key": item, "start": index, "end": index})
+    elif item.startswith("-"):
+      commandListUnknown.append(item)
+
+  if len(commandListUnknown) > 0:
+    print("Unknown options:")
+    for opt in commandListUnknown:
+      print(opt)
+    return {}
 
   commandsList = commandsListTmp
 
@@ -851,16 +860,18 @@ def processCommandLine(commandsLine, listOfSwitch):
       else:#commandsList[i]["start"] > commandsList[i]["end"]:
         commandsList[i]["start"] = None
         commandsList[i]["end"] = None
+        
+    if n>1:
+      # There must be at least one element after last switch
+      if commandsList[n-1]["start"] < nAll:
+        commandsList[n-1]["start"] = commandsList[n-1]["start"] + 1
+        commandsList[n-1]["end"] = nAll-1
+  
+      else:#if commandsList[n-1]["start"] > commandsList[n-1]["end"]:
+        commandsList[n-1]["start"] = None
+        commandsList[n-1]["end"] = None
 
-    # There must be at least one element after last switch
-    if commandsList[n-1]["start"] < nAll:
-      commandsList[n-1]["start"] = commandsList[n-1]["start"] + 1
-      commandsList[n-1]["end"] = nAll-1
-
-    else:#if commandsList[n-1]["start"] > commandsList[n-1]["end"]:
-      commandsList[n-1]["start"] = None
-      commandsList[n-1]["end"] = None
-
+  commandsDict = {}
   for command in commandsList:
     key = command["key"]
     if command["start"] is None:
@@ -965,7 +976,7 @@ def printWelcomeMsg():
 '''
 Welcome to VSCA (Very Simple Computer Assembler)
 Version 1.0
-Build 202311192355
+Build 202312081549
 Type -h and confirm with ENTER for help.
 '''
 

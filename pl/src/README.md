@@ -6,7 +6,7 @@
 
 - VSC 1.0 [source code](../../src/1_0/vsc.py)
 - Opis zestawu instrukcji [Markdown](instruction_set.md), [PDF](instruction_set.pdf)
-- Przykładowa [bardzo prosta sesja VSC](examples/session_simple_test.md) przeprowadzona na pliku [`simple_test.mc](examples/simple_test.mc).
+- Przykładowa [bardzo prosta sesja VSC](examples/session_simple_test.md) przeprowadzona na pliku [`simple_test.mc`](examples/simple_test.mc).
 - Przykładowa [sesja z VSC](examples/session_tutorial_05_01.md) przeprowadzona na pliku [`tutorial_05_01.mc`](examples/tutorial_05_01.mc).
 
 ## Przykładowe rozwiązania zadań

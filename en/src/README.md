@@ -5,7 +5,7 @@
 
 - VSC 1.0 [source code](../../src/1_0/vsc.py)
 - Complete instruction set reference [Markdown](instruction_set.md), [PDF](instruction_set.pdf)
-- Example, very basic, [VSC session](examples/session_simple_test.md) on [`simple_test.mc](examples/simple_test.mc) file.
+- Example, very basic, [VSC session](examples/session_simple_test.md) on [`simple_test.mc`](examples/simple_test.mc) file.
 - Example [VSC session](examples/session_tutorial_05_01.md) on [`tutorial_05_01.mc`](examples/tutorial_05_01.mc) file.
 
 ## Examples of task solutions
