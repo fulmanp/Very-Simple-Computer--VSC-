@@ -1,7 +1,7 @@
 ; vsc = 1.0
 ; W pierwszym wierszu pliku zawsze jest informacja o wersji VSC (VSCA) w jakiej
 ; dany kod jest napisany.
-                  ; .data 10      ; Rozpoczęcie umieszczania danych od adresu 10.
+                  ; .data 0      ; Rozpoczęcie umieszczania danych od adresu 10.
                   
                   ; Wektor danych
 0000    00008     ;v: 8

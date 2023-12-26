@@ -8,6 +8,11 @@
 - Example, very basic, [VSC session](examples/session_simple_test.md) on [`simple_test.mc`](examples/simple_test.mc) file.
 - Example [VSC session](examples/session_tutorial_05_01.md) on [`tutorial_05_01.mc`](examples/tutorial_05_01.mc) file.
 
+## Converters
+
+- [Converter from the machine code with mnemonics (`*.mca`) to the machine code (`*.mc`)] (../../src/1_0/mca2mc.py)
+- [`simple_test_2.mc` - a test file for conversion from`*.mca` to `*.mc`] (examples/simple_test_2.mc) ([`simple_test_2.mca` - converting result] (examples/simple_test_2.mca))
+
 ## Examples of task solutions
 
 - [`tutorial_02_01_solution_1_2.mc`](examples/tutorial_02_01_solution_1_2.mc)

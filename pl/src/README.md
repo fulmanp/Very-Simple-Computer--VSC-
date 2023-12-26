@@ -9,6 +9,11 @@
 - Przykładowa [bardzo prosta sesja VSC](examples/session_simple_test.md) przeprowadzona na pliku [`simple_test.mc`](examples/simple_test.mc).
 - Przykładowa [sesja z VSC](examples/session_tutorial_05_01.md) przeprowadzona na pliku [`tutorial_05_01.mc`](examples/tutorial_05_01.mc).
 
+## Konwertery
+
+- [Konwerter z kodu maszynowego z mnemonikami (`*.mca`) na kod maszynowy (`*.mc`)](../../src/1_0/mca2mc.py)
+- [`simple_test_2.mc` – testowy plik do konwersji z `*.mca` na `*.mc`](examples/simple_test_2.mc) ([`simple_test_2.mca` – wynik konwersji](examples/simple_test_2.mca))
+
 ## Przykładowe rozwiązania zadań
 
 - [`tutorial_02_01_solution_1_2.mc`](examples/tutorial_02_01_solution_1_2.mc)
