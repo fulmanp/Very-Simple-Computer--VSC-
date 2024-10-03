@@ -1,7 +1,7 @@
 # Very Simple Computer
 
 [![Selct language](../icon20x24px-exported-transparent.png)](../README.md)
-[polski](../../pl/README.md)
+[polski](../pl/README.md)
 
 # Tutorials
 
@@ -17,4 +17,4 @@
 
 - [VSC emulator](src/README.md)
 - Complete [instruction set reference](src/instruction_set.md)
-- [Converter from the machine code with mnemonics (`*.mca`) to the machine code (`*.mc`)] (src/README.md)
+- [Converter from the machine code with mnemonics (`*.mca`) to the machine code (`*.mc`)](src/README.md)
