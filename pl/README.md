@@ -1,7 +1,7 @@
 # Very Simple Computer
 
 [![Selct language](../icon20x24px-exported-transparent.png)](../README.md)
-[English](../../en/README.md)
+[English](../en/README.md)
 
 # Tutorials
 
