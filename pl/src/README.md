@@ -12,7 +12,7 @@
 ## Konwertery
 
 - [Konwerter z kodu maszynowego z mnemonikami (`*.mca`) na kod maszynowy (`*.mc`)](../../src/1_0/mca2mc.py)
-- [`simple_test_2.mc` – testowy plik do konwersji z `*.mca` na `*.mc`](examples/simple_test_2.mc) ([`simple_test_2.mca` – wynik konwersji](examples/simple_test_2.mca))
+- [`simple_test_2.mca` – testowy plik do konwersji z `*.mca` na `*.mc`](examples/simple_test_2.mca) ([`simple_test_2.mc` – wynik konwersji](examples/simple_test_2.mc))
 
 ## Przykładowe rozwiązania zadań
 
