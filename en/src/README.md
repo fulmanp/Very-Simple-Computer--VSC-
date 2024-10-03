@@ -11,7 +11,7 @@
 ## Converters
 
 - [Converter from the machine code with mnemonics (`*.mca`) to the machine code (`*.mc`)](../../src/1_0/mca2mc.py)
-- [`simple_test_2.mca` - a test file for conversion from`*.mca` to `*.mc`](examples/simple_test_2.mca) ([`simple_test_2.mc` - converting result] (examples/simple_test_2.mc))
+- [`simple_test_2.mca` - a test file for conversion from`*.mca` to `*.mc`](examples/simple_test_2.mca) ([`simple_test_2.mc` - converting result](examples/simple_test_2.mc))
 
 ## Examples of task solutions
 
