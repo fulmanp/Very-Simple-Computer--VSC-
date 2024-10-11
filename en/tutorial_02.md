@@ -71,13 +71,13 @@ The question is:
 - How to distinguish between these two variants of `ADD` instruction?
 - When operand treat as address and when as value?
 
-To overcome this difficulties you will use the following convention is. Notation:
+To overcome this difficulties you will use the convention where notation:
 
 ```
 mnemonic operand
 ```
 
-means: executing instruction **mnemonic** as a value (as an argument) use number taken from the address **operand**, while notation:
+means: executing instruction `mnemonic` as a value (as an argument) use the **number** taken **from** the address `operand`, while notation:
 
 ```
 mnemonic (operand)
@@ -134,9 +134,9 @@ x3xxx - addressing mode (3 for immediate, 2 byte length)
 xx3xx - code for addition in basic instructions set
 ```
 
-This is in some sens a mixture of direct and immediate addresing: you have two memory access (one for instruction and the second to get value) but argument is always located next to instruction (after instruction) -- you could say that you (almost) immediately know where the argument is. If you take into account that modern CPU reads always few memory cell at once, it may turn out that when first number (instruction) `93300` is read, `00128` will also be read and will be available for CPU just after it finish processing instruction.
+This is in some sens a mixture of direct and immediate addresing: you have two memory access (one for instruction and the second to get value) but argument is always located next to instruction (after instruction) -- you could say that you (almost) immediately know where the argument is. If you take into account that modern CPU reads always few memory cells at once, it may turn out that when first number (instruction) `93300` is read, `00128` will also be read and will be available for CPU just after it finish processing instruction.
 
-When you use assembler, you simply write in your code:
+Notice that when you use assembler, you simply write in your code:
 
 ```
 ADD (7)
@@ -144,7 +144,7 @@ ADD (342)
 ADD (9)
 ```
 
-and you don't have to care about all low level details. The compiler translates your code into machine code. Even though both instructions mean adding in the same addressing mode, each will have a different machine code generated:
+and you don't have to care about all low level details. The compiler translates your code into machine code. Even though all instructions mean adding in the same addressing mode, each will have a different machine code generated:
 
 ```
 address value
@@ -255,7 +255,7 @@ x4xxx - addressing mode (4 for indirect)
 xx3xx - code for addition in basic instructions set               
 ```
 
-You can think about `[ ]` "operator" as an substitution: having instruction `mnemonic [operand]` take first value from the address `operand`, name it `val`, substitute `[operand]` by `val` and finally execute instruction `mnemonic val`.
+You can think about `[ ]` "operator" as an substitution: having instruction `mnemonic [operand]` take first value from the address `operand`, name it `val`, substitute `[operand]` by `val` and finally execute instruction `mnemonic val`:
 
 ```
 ADD [5] -> value at address 5 = 36 -> ADD 36
