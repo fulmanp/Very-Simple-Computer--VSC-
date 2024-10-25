@@ -861,15 +861,13 @@ def processCommandLine(commandsLine, listOfSwitch):
         commandsList[i]["start"] = None
         commandsList[i]["end"] = None
         
-    if n>1:
-      # There must be at least one element after last switch
-      if commandsList[n-1]["start"] < nAll:
-        commandsList[n-1]["start"] = commandsList[n-1]["start"] + 1
-        commandsList[n-1]["end"] = nAll-1
-  
-      else:#if commandsList[n-1]["start"] > commandsList[n-1]["end"]:
-        commandsList[n-1]["start"] = None
-        commandsList[n-1]["end"] = None
+    # There must be at least one element after last switch
+    if commandsList[n-1]["start"] < nAll:
+      commandsList[n-1]["start"] = commandsList[n-1]["start"] + 1
+      commandsList[n-1]["end"] = nAll-1
+    else:#if commandsList[n-1]["start"] > commandsList[n-1]["end"]:
+      commandsList[n-1]["start"] = None
+      commandsList[n-1]["end"] = None
 
   commandsDict = {}
   for command in commandsList:
@@ -976,7 +974,7 @@ def printWelcomeMsg():
 '''
 Welcome to VSCA (Very Simple Computer Assembler)
 Version 1.0
-Build 202312081549
+Build 202410252242
 Type -h and confirm with ENTER for help.
 '''
 

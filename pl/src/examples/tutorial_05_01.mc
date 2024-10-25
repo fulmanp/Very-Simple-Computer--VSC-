@@ -5,7 +5,7 @@
 ; Program znajdujący mniejszą z dwóch zadanych liczb.
 ; Pierwsza liczba znajduje się pod adresem 10.
 ; Druga liczba znajduje się pod adresem 11.
-; Wynik, mniejsza z dwóch liczb, znajleźć się pod adresem 12.
+; Wynik, mniejsza z dwóch liczb, znaleźć się pod adresem 12.
 
 ;Address Value
                   ; .data 10      ; Rozpoczęcie umieszczania danych od adresu 10.
