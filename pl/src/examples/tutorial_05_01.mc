@@ -2,7 +2,7 @@
 ; W pierwszym wierszu pliku zawsze jest informacja o wersji VSC (VSCA) w jakiej
 ; dany kod jest napisany.
 ;
-; Program znajdujący mniejszą z dwóch zadanych liczb.
+; Program znajdujący mniejszą z dwóch zadanych liczb dodatnich.
 ; Pierwsza liczba znajduje się pod adresem 10.
 ; Druga liczba znajduje się pod adresem 11.
 ; Wynik, mniejsza z dwóch liczb, znajleźć się pod adresem 12.
@@ -10,7 +10,7 @@
 ;Address Value
                   ; .data 10      ; Rozpoczęcie umieszczania danych od adresu 10.
   0010    00005   ; x: 5          ; x - pierwsza liczba.
-  0011    10008   ; y: -8         ; y - druga liczba.
+  0011    10008   ; y: 2          ; y - druga liczba.
 ; 0012    00000   ; r: ?          ; Wynik = min(x,y).
                                   ; Uwaga do linii powyżej:
                                   ; W kodzie maszynowym nie trzeba pisać '0012    00000'
