@@ -44,7 +44,7 @@ Reading this material you may find useful to have a reference to a complete [ins
 	```	
 	> -show -memory 10-12
 	M[0010] = 00005
-	M[0011] = 00002
+	M[0011] = 10008
 	M[0012] = 03728
 	```
 - **Step 5: execute one instruction**
@@ -85,13 +85,13 @@ Reading this material you may find useful to have a reference to a complete [ins
     Machine code: 4aaaa
     Addressing: direct
     Address: 0011
-    Value at address 0011 as bits: 00002
-    Value at address 0011 as int: +0002
-    Value in accumulator as bits: 00003
-    Value in accumulator as int: +0003
+    Value at address 0011 as bits: 10008
+    Value at address 0011 as int: -0008
+    Value in accumulator as bits: 00013
+    Value in accumulator as int: +0013
     ```
     
-    Next you subtract value at address 11, which is equal to 2, from value stored in accumulator. You will get `accumulator = +5-(+2) = +3`.
+    Next you subtract value at address 11, which is equal to -8, from value stored in accumulator. You will get `accumulator = +5-(-8) = +13`.
 
 - **Step 7: repeat last command**    
 
@@ -101,18 +101,18 @@ Reading this material you may find useful to have a reference to a complete [ins
     Registers:
     IP = 22
     IR = 70025
-    A = 00003
+    A = 00013
     
     Description: Conditional branch to instruction located at address aaaa if value stored in accumulator is negative.
     Mnemonic: BRN aaaa
     Machine code: 7aaaa
     Addressing: direct
     Address: 0025
-    Value in accumulator: 00003
+    Value in accumulator: 00013
     Value in accumulator is positive
     ```
     
-    If value in accumulator is negative do branch (jump) at address `25`. In this case value stored in accumulator is equal to `+3` so there is no branch and next instruction (instruction at address `23`) is fetched.
+    If value in accumulator is negative do branch (jump) at address `25`. In this case value stored in accumulator is equal to `+13` so there is no branch and next instruction (instruction at address `23`) is fetched.
 
 - **Step 8: repeat last command**
 
@@ -122,18 +122,18 @@ Reading this material you may find useful to have a reference to a complete [ins
     Registers:
     IP = 23
     IR = 10011
-    A = 00003
+    A = 00013
     
     Description: Copy value from memory at address aaaa to accumulator, A := M[aaaa].
     Mnemonic: CPA aaaa
     Machine code: 1aaaa
     Addressing: direct
-    Value at address 0011: 00002
-    Value in accumulator as bits: 00002
-    Value in accumulator as int: +0002
+    Value at address 0011: 10008
+    Value in accumulator as bits: 10008
+    Value in accumulator as int: -0008
     ```
     
-    Copy to accumulator value at address `11` which is equal to `-8`. This value is equal to `min(+5,+2)`.
+    Copy to accumulator value at address `11` which is equal to `-8`. This value is equal to `min(+5,-8)`.
     
 - **Step 9: repeat last command**    
 
@@ -143,7 +143,7 @@ Reading this material you may find useful to have a reference to a complete [ins
     Registers:
     IP = 24
     IR = 60026
-    A = 00002
+    A = 10008
     
     Description: Unconditional branch to instruction located at address aaaa.
     Mnemonic: BRA aaaa
@@ -162,13 +162,13 @@ Reading this material you may find useful to have a reference to a complete [ins
     Registers:
     IP = 26
     IR = 20012
-    A = 00002
+    A = 10008
     
     Description: Copy value from accumulator to memory at address aaaa, M[aaaa] := A.
     Mnemonic: STO aaaa
     Machine code: 2aaaa
     Addressing: direct
-    Store at address 0012 value: 00002
+    Store at address 0012 value: 10008
     ```
     
     Copy value in accumulator at address `12` where result should be placed when the execution ends. At this moment value in accumulator is equal to `-8` (see step 8).
@@ -181,7 +181,7 @@ Reading this material you may find useful to have a reference to a complete [ins
     Registers:
     IP = 27
     IR = 00000
-    A = 00002
+    A = 10008
     
     Description: Stop the cpu.
     Mnemonic: HLT
@@ -205,8 +205,8 @@ Reading this material you may find useful to have a reference to a complete [ins
     ```
     > -show -memory 10-12
     M[0010] = 00005
-    M[0011] = 00002
-    M[0012] = 00002
+    M[0011] = 10008
+    M[0012] = 10008
     ```
     
     Verify if result, which is at address `12`, is qual to minimum of values stored at addresses `10` and `11` which are equal respectively to `+5` and `-8`.

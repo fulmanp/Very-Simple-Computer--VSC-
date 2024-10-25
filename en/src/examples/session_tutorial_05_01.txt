@@ -11,7 +11,7 @@ Loading program from: tutorial_05_01.mc
 Starting at address: 20
 > -show -memory 10-12
 M[0010] = 00005
-M[0011] = 00002
+M[0011] = 10008
 M[0012] = 03728
 > -run -step
 Executing one instruction
@@ -39,10 +39,10 @@ Mnemonic: SUB aaaa
 Machine code: 4aaaa
 Addressing: direct
 Address: 0011
-Value at address 0011 as bits: 00002
-Value at address 0011 as int: +0002
-Value in accumulator as bits: 00003
-Value in accumulator as int: +0003
+Value at address 0011 as bits: 10008
+Value at address 0011 as int: -0008
+Value in accumulator as bits: 00013
+Value in accumulator as int: +0013
 > 
 Executing one instruction
 Registers:
@@ -55,28 +55,28 @@ Mnemonic: BRN aaaa
 Machine code: 7aaaa
 Addressing: direct
 Address: 0025
-Value in accumulator: 00003
+Value in accumulator: 00013
 Value in accumulator is positive
 > 
 Executing one instruction
 Registers:
 IP = 23
 IR = 10011
-A = 00003
+A = 00013
 
 Description: Copy value from memory at address aaaa to accumulator, A := M[aaaa].
 Mnemonic: CPA aaaa
 Machine code: 1aaaa
 Addressing: direct
-Value at address 0011: 00002
-Value in accumulator as bits: 00002
-Value in accumulator as int: +0002
+Value at address 0011: 10008
+Value in accumulator as bits: 10008
+Value in accumulator as int: -0008
 > 
 Executing one instruction
 Registers:
 IP = 24
 IR = 60026
-A = 00002
+A = 10008
 
 Description: Unconditional branch to instruction located at address aaaa.
 Mnemonic: BRA aaaa
@@ -88,19 +88,19 @@ Executing one instruction
 Registers:
 IP = 26
 IR = 20012
-A = 00002
+A = 10008
 
 Description: Copy value from accumulator to memory at address aaaa, M[aaaa] := A.
 Mnemonic: STO aaaa
 Machine code: 2aaaa
 Addressing: direct
-Store at address 0012 value: 00002
+Store at address 0012 value: 10008
 > 
 Executing one instruction
 Registers:
 IP = 27
 IR = 00000
-A = 00002
+A = 10008
 
 Description: Stop the cpu.
 Mnemonic: HLT
@@ -110,6 +110,6 @@ Executing one instruction
 Program execution halted. Please do reset
 > -show -memory 10-12
 M[0010] = 00005
-M[0011] = 00002
-M[0012] = 00002
+M[0011] = 10008
+M[0012] = 10008
 > -exit 

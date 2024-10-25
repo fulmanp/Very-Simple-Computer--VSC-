@@ -2,7 +2,7 @@
 ; The first line of the file always contains information about the VSC (VSCA)
 ; version the code is written.
 ;
-; A program that finds the smaller of two given positive numbers.
+; A program that finds the smaller of two given numbers.
 ; The first number is at address 10.
 ; The second number is at address 11.
 ; The result, the smaller of the two numbers, will be at address 12.
@@ -10,7 +10,7 @@
 ;Address Value
                   ; .data 10      ; Start placing data from address 10.
   0010    00005   ; x: 5          ; x - first number.
-  0011    10008   ; y: 2         ; y - second number.
+  0011    10008   ; y: -8         ; y - second number.
 ; 0012    00000   ; r: ?          ; Result = min(x,y).
                                   ; Note to the line above:
                                   ; In machine code you don't have to write '0012 00000'
