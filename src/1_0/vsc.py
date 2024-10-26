@@ -4,7 +4,7 @@ import re
 
 # asm -> mca -> mc
 # asm - assembler with mnemonic, labels etc.
-# mca - (Machine Code Assembler) - machine code but with some assembler syntax
+# mca - (Machine Code Assembler) - machine code but with some assembler syntax like mnemonics
 # mc - (Machine Code) - pure machine code
 class VSC:
   memorySize = 10000 # Addresses from 0000 to 9999

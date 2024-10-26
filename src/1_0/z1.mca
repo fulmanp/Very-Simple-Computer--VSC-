@@ -1,0 +1,12 @@
+;Address Instruction Comment
+;        (mnemonic)
+0010      9          ; Liczba x
+0011      7          ; Liczba y
+0012      -9          ; Liczba x
+0013      +7          ; Liczba y
+0014      00009          ; Liczba x
+0015      10007          ; Liczba y
+0020      CPA 10     ;
+0021      ADD 11     ;
+0022      STO 15    ; 
+0023      HLT
