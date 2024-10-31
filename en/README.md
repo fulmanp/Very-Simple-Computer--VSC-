@@ -17,4 +17,5 @@
 
 - [VSC emulator](src/README.md)
 - Complete [instruction set reference](src/instruction_set.md)
+- [Converter from the assembler (`*.asm`) to the machine code with mnemonics (`*.mca`)](src/README.md)
 - [Converter from the machine code with mnemonics (`*.mca`) to the machine code (`*.mc`)](src/README.md)

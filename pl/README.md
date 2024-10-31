@@ -17,4 +17,5 @@
 
 - [VSC emulator](src/README.md)
 - [Opis zestawu instrukcji](src/instruction_set.md)
+- [Konwerter z assemblera (`*.asm`) do kodu maszynowego z mnemonikami (`*.mca`)](src/README.md)
 - [Konwerter z kodu maszynowego z mnemonikami (`*.mca`) na kod maszynowy (`*.mc`)](src/README.md)
