@@ -463,8 +463,8 @@ def getMCA(memory):
           else:
             newMemory.append(f"{addr} {value} ({operand})")
       else:
-        #if value != "NOP":  
-        newMemory.append(f"{addr} {value}")
+        if value != "NOP":  
+          newMemory.append(f"{addr} {value}")
       
   return newMemory
 

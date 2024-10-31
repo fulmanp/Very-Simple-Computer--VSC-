@@ -7,7 +7,7 @@ In this example you will learn how to use VSC working on [`scalar_product.asm`](
 ## Session steps
 
 
-- **Step 1: convert `*.asm` file to `*.mca`.
+- **Step 1: convert `*.asm` file to `*.mca`**
   
   ```
   fulmanp@MacBook-Pro-Piotr xx % python3 asm2mca.py scalar_product.asm | tail -n +15 > scalar_product.mca
@@ -15,7 +15,7 @@ In this example you will learn how to use VSC working on [`scalar_product.asm`](
   
   See: [`scalar_product.asm`](scalar_product.asm), [`scalar_product.mca`](scalar_product.mca)
 
-- **Step 2: convert `*.mca` file to `*.mc`.
+- **Step 2: convert `*.mca` file to `*.mc`**
   
   ```
   fulmanp@MacBook-Pro-Piotr xx % python3 mca2mc.py scalar_product.mca | tail -n +15 > scalar_product.mc
