@@ -972,7 +972,7 @@ def mainLoop():
 def printWelcomeMsg():
   text = \
 '''
-Welcome to VSCA (Very Simple Computer Assembler)
+Welcome to VSC (Very Simple Computer)
 Version 1.0
 Build 202410252242
 Type -h and confirm with ENTER for help.

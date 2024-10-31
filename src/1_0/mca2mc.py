@@ -44,16 +44,17 @@ def addressDuplicated(addresses, m):
     addresses[m] = 1
     return False
 
+
 def mca2mc(path):
   addresses = {}
   with open(path, encoding="utf8") as fileSrc:
     lines = fileSrc.readlines()
 
-    reDirect    = re.compile("(?P<address>\d{4})\s+(?P<mnemonic>\w*)\s+(?P<operand>\d+)")
-    reIndirect  = re.compile("(?P<address>\d{4})\s+(?P<mnemonic>\w*)\s+\[(?P<operand>\d+)\]")
-    reImmediate = re.compile("(?P<address>\d{4})\s+(?P<mnemonic>\w*)\s+\((?P<operand>\d+)\)")
-    reNoOperand = re.compile("(?P<address>\d{4})\s+(?P<mnemonic>\w*)")
-    reData = re.compile("(?P<address>\d{4})\s+(?P<value>[\+-]?\d+)")
+    reDirect    = re.compile("(?P<address>\d{4})\s{1}(?P<mnemonic>\w*)\s{1}(?P<operand>\d+)")
+    reIndirect  = re.compile("(?P<address>\d{4})\s{1}(?P<mnemonic>\w*)\s{1}\[(?P<operand>\d+)\]")
+    reImmediate = re.compile("(?P<address>\d{4})\s{1}(?P<mnemonic>\w*)\s{1}\((?P<operand>\d+)\)")
+    reNoOperand = re.compile("(?P<address>\d{4})\s{1}(?P<mnemonic>\w*)")
+    reData = re.compile("(?P<address>\d{4})\s{1}(?P<value>[\+-]?\d+)")
 
     memory = None
     mnemonic = None
@@ -200,16 +201,17 @@ def mca2mc(path):
               
               if result:
                 m = "0" * (4-len(memory)) + memory
-                m2 = "0" * (len(str(int(memory)+1))) + str(int(memory)+1)
+                s = str(int(memory)+1)
+                m2 = "0" * (4-len(s)) + s
                 if len(result) == 5:
                   if len(m)>4:
-                    print(f"Memory address {m} is to big")
+                    print(f"Memory address {m} is to big [1]")
                     return
                   elif len(m2)>4:
-                    print(f"Memory address {m2} is to big")
+                    print(f"Memory address {m2} is to big [2]")
                     return
                   print(f"{m} {ins['opcode']} ; {comment}")
-                  print(f"{m2} {result}")
+                  print(f"{m2} {result} ; 2nd byte")
                   if addressDuplicated(addresses, m):
                     print(f"WARNING!!! Duplication of address {m}")
                   if addressDuplicated(addresses, m2):
@@ -218,7 +220,7 @@ def mca2mc(path):
                 else:
                   m = "0" * (4-len(memory)) + memory
                   if len(m)>4:
-                    print(f"Memory address {m} is to big")
+                    print(f"Memory address {m} is to big [3]")
                     return
                   print(f"{m} {ins['opcode']}{result} ; {comment}")
                   if addressDuplicated(addresses, m):
@@ -227,7 +229,7 @@ def mca2mc(path):
             else:
               m = "0" * (4-len(memory)) + memory
               if len(m)>4:
-                print(f"Memory address {m} is to big")
+                print(f"Memory address {m} is to big [4]")
                 return
               print(f"{m} {ins['opcode']} ; {comment}")
               if addressDuplicated(addresses, m):
@@ -240,12 +242,40 @@ def mca2mc(path):
       elif (memory and value):
         m = "0" * (4-len(memory)) + memory
         if len(m)>4:
-          print(f"Memory address {m} is to big")
+          print(f"Memory address {m} is to big [5]")
           return      
-            
-        value = intToBits(int(value))
-        print(f"{m} {value} ; {comment}")
+        
+        l = len(value)
+          
+        if l == 5 and value.isdigit(): # Only digits, 5 digits - treat as a ready to use number
+          print(f"{m} {value} ; {comment}")
+        elif l > 5: # Too big, use dummy replacement
+          print(f"Value {value} is not a correct value")
+          print(f"{m} 00000 ; {comment}")
+        else:    
+          value = intToBits(int(value))
+          print(f"{m} {value} ; {comment}")
 
-    
+
+def printWelcomeMsg():
+  text = \
+'''
+Welcome to mca to mc converter
+Version 1.0
+Build 202410310915
+
+Please note conversion pattern:
+# asm -> mca -> mc
+# asm - assembler with mnemonic, labels etc.
+# mca - (Machine Code Assembler) - machine code but with some assembler syntax like mnemonics
+# mc - (Machine Code) - pure machine code
+
+To skip above header in the output you can use 'tail' command like this:
+asm2mca.py program.asm | tail -n +15
+'''
+
+  print(text)
+      
 if __name__ == '__main__':
+  printWelcomeMsg()
   mca2mc(sys.argv[1])
