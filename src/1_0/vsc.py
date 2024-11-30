@@ -4,7 +4,7 @@ import re
 
 # asm -> mca -> mc
 # asm - assembler with mnemonic, labels etc.
-# mca - (Machine Code Assembler) - machine code but with some assembler syntax like mnemonics
+# mca - (Machine Code Assembler) - machine code but with some assembler syntax
 # mc - (Machine Code) - pure machine code
 class VSC:
   memorySize = 10000 # Addresses from 0000 to 9999
@@ -517,8 +517,6 @@ class VSC:
         address = int(instruction[3:5])
         addressBits = self.getValueAtAddressAsBits(address)
         address = self.bitsToInt(addressBits)
-        addressBits = self.getValueAtAddressAsBits(address)
-        address = self.bitsToInt(addressBits)
         valueBits = self.acc
         print("Description: Copy value from accumulator to memory at address given in memory at address aa, M[M[aa]] := A.")
         print("Mnemonic: STO [aa]")
@@ -972,9 +970,9 @@ def mainLoop():
 def printWelcomeMsg():
   text = \
 '''
-Welcome to VSC (Very Simple Computer)
+Welcome to VSCA (Very Simple Computer Assembler)
 Version 1.0
-Build 202410252242
+Build 202411302232
 Type -h and confirm with ENTER for help.
 '''
 

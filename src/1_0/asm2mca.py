@@ -110,12 +110,12 @@ def isNumber(sequence):
       
       s += "0"*(4-l) + value
 
-      return {"result": "ok", "value": s}
+      return {"result": "ok", "value": s} # Think about this as answer "Yes" for the question: is numeric?
     else:
       v = f"Sequence {sequence} is to long to be a correct number"
       return {"result": "error", "value": v}
   else:
-    return {"result": "ok", "value": None}
+    return {"result": "ok", "value": None} # Think about this as answer "No" for the question: is numeric?
 
 
 def normalizeLines(lines):
@@ -241,6 +241,8 @@ def getTokens(lines, labels):
     #print(comment)
     #print(instruction)
     
+    #print(ln, label, comment, instruction)
+    
     if label:
       t.append({"type": "label", "value": label[0]})
     
@@ -270,28 +272,33 @@ def getTokens(lines, labels):
         mnemonic = instruction[0]
         operand = instruction[1]
         addressing = "direct"
-      elif lIns == 4:  
+      elif lIns == 4:
         mnemonic = instruction[0]
         operand = instruction[2]
         if instruction[1] == "[" and instruction[3] == "]":
           addressing = "indirect"
-        elif instruction[1] == "[" and instruction[3] == "]":
+        elif instruction[1] == "(" and instruction[3] == ")":
           addressing = "immediate"
           
       if mnemonic in {"BRA", "BRN", "BRNF", "BRZ", "BRZF"}:
           addressing = "immediate"
-        
+
       if isInstruction(mnemonic):
         if operand in labels:
-          
           t.append({"type": "instruction", "value": mnemonic, "addressing": addressing})
           t.append({"type": "operand_label", "value": operand})
           #tokens.append(t)
-        elif operand.isDigit() and len(operand) == 5:
-          t = []
-          t.append({"type": "instruction", "value": mnemonic, "addressing": addressing})
-          t.append({"type": "operand_number", "value": operand})
-          #tokens.append(t)
+        else:
+          v = isNumber(operand)
+          if v["result"] == "ok" and v["value"] is not None:
+            v = v["value"]
+            #t = []
+            t.append({"type": "instruction", "value": mnemonic, "addressing": addressing})
+            t.append({"type": "operand_number", "value": v})
+            #tokens.append(t)
+          else:
+            print("Something is wrong")
+            return None
       else:
         print(f"{mnemonic} is not mnemonic in line: {line}")
         return None
@@ -301,7 +308,7 @@ def getTokens(lines, labels):
       return None
     
     tokens.append(t)
-    
+  
   return tokens
 
 
@@ -363,15 +370,24 @@ def processTokens(tokens):
         a += 1
       elif "operand_number" in t:
         # If operand is exact number there is no need to gues instruction size
-        operand = t["operand_number"]["value"]
-        #tutu
+        # But simpler is to "copy" solution for "operand_label"
+        operand_number = t["operand_number"]["value"]
+        addressing = t["instruction"]["addressing"]
+        if label:
+          memory.append({"address": addr, "value": instruction, "operand": operand_number, "addressing": addressing, "bytes": 2, "label": label})
+        else:
+          memory.append({"address": addr, "value": instruction, "operand": operand_number, "addressing": addressing, "bytes": 2})
+        a += 1
+        addr = intToAddress(a)
+        memory.append({"address": addr, "value": "NOP"})
+        a += 1
       else:
         if label:
           memory.append({"address": addr, "value": instruction, "label": label})
         else:
           memory.append({"address": addr, "value": instruction})
         a += 1
-      
+  
   # Second pass: iteratively try to remove NOPs
   instructions = getInstructions()
   for _ in range(len(memory)): # len(memory) is the upper limit of iterations
@@ -488,7 +504,7 @@ def printWelcomeMsg():
 '''
 Welcome to asm to mca converter
 Version 1.0
-Build 202410310915
+Build 202411302232
 
 Please note conversion pattern:
 # asm -> mca -> mc
