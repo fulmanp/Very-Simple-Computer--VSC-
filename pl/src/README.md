@@ -20,7 +20,7 @@ Plik `*.mca` zawiera kod pośredni, który jest mieszanką asemblera i kodu masz
 
 Plik `*.mc` to czysty kod maszynowy z dokładnymi adresami i instrukcjami zakodowanymi jako liczby.
 
-- [Konwerter z assemblera (`*.mca`) na kod maszynowy z mnemonikami (`*.mca`)](../../src/1_0/asm2mca.py)
+- [Konwerter z assemblera (`*.asm`) na kod maszynowy z mnemonikami (`*.mca`)](../../src/1_0/asm2mca.py)
 - [Konwerter z kodu maszynowego z mnemonikami (`*.mca`) na kod maszynowy (`*.mc`)](../../src/1_0/mca2mc.py)
 
 ## Przykładowe rozwiązania zadań
